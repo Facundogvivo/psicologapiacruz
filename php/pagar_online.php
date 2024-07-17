@@ -27,8 +27,8 @@ $preference->items = array($item);
 
 // Crear URL de retorno
 $preference->back_urls = array(
-    "success" => "http://localhost/PiaCruz/php/pago_exitoso_online.php",
-    "failure" => "http://localhost/PiaCruz/php/pago_fallido_online.php",
+    "success" => "https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/pago_exitoso_online.php",
+    "failure" => "https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/pago_fallido_online.php",
     "pending" => ""
 );
 $preference->auto_return = "approved";

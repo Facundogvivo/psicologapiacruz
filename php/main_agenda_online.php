@@ -16,16 +16,16 @@ $hora = $_POST['txt_hora_online'];
 
 // Verificar si la hora ha sido seleccionada
 if (empty($hora)) {
-    echo "<script> alert('Debes seleccionar una hora para agendarla.'); window.location='../reservaOnline.php' </script>";
-    exit;
+  echo "<script> alert('Debes seleccionar una hora para agendarla.'); window.location='../reservaOnline.php' </script>";
+  exit;
 }
 
 if ($motivo == 'Primera Sesión de Evaluación') {
-    // Guardar en la base de datos
-    $sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('Online','$rut', '$nombre', '$email', '$telefono', '$motivo', '$fecha', '$hora')";
+  // Guardar en la base de datos
+  $sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('Online','$rut', '$nombre', '$email', '$telefono', '$motivo', '$fecha', '$hora')";
 
-    if (mysqli_query($conn, $sql)) {
-        echo "
+  if (mysqli_query($conn, $sql)) {
+    echo "
     <!DOCTYPE html>
     <html lang='en'>
     
@@ -47,7 +47,7 @@ if ($motivo == 'Primera Sesión de Evaluación') {
           <img src='../images/logo.png' alt='Logo' />
         </div>
         <ul>
-          <li><a href='../index.html#inicio'>Inicio</a></li>
+          <li><a href='../index.html'>Inicio</a></li>
           <li><a href='../index.html#sobre_mi'>Sobre mí</a></li>
           <li>
             <a href='../index.html#metodologia' class='btn-primero'>Metodología<span
@@ -180,24 +180,24 @@ if ($motivo == 'Primera Sesión de Evaluación') {
     </body>
     
     </html>";
-    }
+  }
 } else {
 
-    // Redirigir a la página de pago con Mercado Pago
-    session_start();
+  // Redirigir a la página de pago con Mercado Pago
+  session_start();
 
-    $_SESSION['reserva'] = array(
-        'consulta' => 'Online',
-        'rut' => $rut,
-        'nombre' => $nombre,
-        'email' => $email,
-        'telefono' => $telefono,
-        'motivo' => $motivo,
-        'dia' => $fecha,
-        'diaModificado' => $fechaModificada,
-        'hora' => $hora
-    );
-    header('Location: pagar_online.php');
-    exit;
+  $_SESSION['reserva'] = array(
+    'consulta' => 'Online',
+    'rut' => $rut,
+    'nombre' => $nombre,
+    'email' => $email,
+    'telefono' => $telefono,
+    'motivo' => $motivo,
+    'dia' => $fecha,
+    'diaModificado' => $fechaModificada,
+    'hora' => $hora
+  );
+  header('Location: pagar_online.php');
+  exit;
 
 }

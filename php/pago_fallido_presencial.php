@@ -21,7 +21,7 @@ echo "
           <img src='../images/logo.png' alt='Logo' />
         </div>
         <ul>
-          <li><a href='../index.html#inicio'>Inicio</a></li>
+          <li><a href='../index.html'>Inicio</a></li>
           <li><a href='../index.html#sobre_mi'>Sobre mí</a></li>
           <li>
             <a href='../index.html#metodologia' class='btn-primero'>Metodología<span

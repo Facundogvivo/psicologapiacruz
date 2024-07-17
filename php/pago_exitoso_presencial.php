@@ -4,8 +4,8 @@ session_start();
 include ("conexion.php");
 
 if (!isset($_SESSION['reserva'])) {
-    echo "<script> alert('No hay reserva para procesar.'); window.location='../reservaPresencial.php' </script>";
-    exit;
+  echo "<script> alert('No hay reserva para procesar.'); window.location='../reservaPresencial.php' </script>";
+  exit;
 }
 
 $reserva = $_SESSION['reserva'];
@@ -14,7 +14,7 @@ $reserva = $_SESSION['reserva'];
 $sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('Presencial', '{$reserva['rut']}', '{$reserva['nombre']}', '{$reserva['email']}', '{$reserva['telefono']}', '{$reserva['motivo']}', '{$reserva['dia']}', '{$reserva['hora']}')";
 if (mysqli_query($conexion, $sql)) {
 
-    echo "
+  echo "
     <!DOCTYPE html>
     <html lang='en'>
     
@@ -36,7 +36,7 @@ if (mysqli_query($conexion, $sql)) {
           <img src='../images/logo.png' alt='Logo' />
         </div>
         <ul>
-          <li><a href='../index.html#inicio'>Inicio</a></li>
+          <li><a href='../index.html'>Inicio</a></li>
           <li><a href='../index.html#sobre_mi'>Sobre mí</a></li>
           <li>
             <a href='../index.html#metodologia' class='btn-primero'>Metodología<span
@@ -170,8 +170,8 @@ if (mysqli_query($conexion, $sql)) {
     
     </html>";
 
-    // Limpiar la sesión
-    unset($_SESSION['reserva']);
+  // Limpiar la sesión
+  unset($_SESSION['reserva']);
 } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
+  echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 }
