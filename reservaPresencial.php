@@ -33,55 +33,55 @@
   </div>
   <nav class="sidebar">
     <div class="logo">
-      <img src="images/logo.png" alt="Logo" />
+      <img src="images/logo2.png" alt="Logo" />
     </div>
     <ul>
-      <li><a href="index.html">Inicio</a></li>
-      <li><a href="index.html#sobre_mi">Sobre mí</a></li>
+      <li><a href="index.php">Inicio</a></li>
+      <li><a href="index.php#sobre_mi">Sobre mí</a></li>
       <li>
-        <a href="index.html#metodologia" class="btn-primero">Metodología<span
+        <a href="index.php#metodologia" class="btn-primero">Metodología<span
             class="fas fa-caret-down primero"></span></a>
         <ul class="mostrar-primero">
-          <li><a href="index.html#pas1">Paso 1: Agenda tu primera consulta</a></li>
-          <li><a href="index.html#pas2">Paso 2: Creamos un plan de trabajo</a></li>
+          <li><a href="index.php#pas1">Paso 1: Agenda tu primera consulta</a></li>
+          <li><a href="index.php#pas2">Paso 2: Creamos un plan de trabajo</a></li>
           <li>
-            <a href="index.html#pas3">Paso 3: Agendamiento de las próximas sesiones</a>
+            <a href="index.php#pas3">Paso 3: Agendamiento de las próximas sesiones</a>
           </li>
         </ul>
       </li>
-      <li><a href="index.html#consultas">Agendar Consulta Presencial</a></li>
-      <li><a href="index.html#consultas">Agendar Consulta Online</a></li>
-      <li><a href="index.html#pre11">Terapia Floral</a></li>
+      <li><a href="index.php#consultas">Agendar Consulta Presencial</a></li>
+      <li><a href="index.php#consultas">Agendar Consulta Online</a></li>
+      <li><a href="index.php#pre11">Terapia Floral</a></li>
       <li>
-        <a href="index.html#informacion" class="btn-segundo">Información para ti<span
+        <a href="index.php#informacion" class="btn-segundo">Información para ti<span
             class="fas fa-caret-down segundo"></span></a>
         <ul class="mostrar-segundo">
-          <li><a href="index.html#pre1">¿La primera sesión es gratis?</a></li>
+          <li><a href="index.php#pre1">¿La primera sesión es gratis?</a></li>
           <li>
-            <a href="index.html#pre2">¿Para qué me ayuda tomar una terapia psicológica?</a>
+            <a href="index.php#pre2">¿Para qué me ayuda tomar una terapia psicológica?</a>
           </li>
           <li>
-            <a href="index.html#pre3">¿Mejor tomar una terapia con Psicólogo o Psiquiatra?</a>
+            <a href="index.php#pre3">¿Mejor tomar una terapia con Psicólogo o Psiquiatra?</a>
           </li>
-          <li><a href="index.html#pre4">¿Cuántas sesiones dura una terapia?</a></li>
+          <li><a href="index.php#pre4">¿Cuántas sesiones dura una terapia?</a></li>
           <li>
-            <a href="index.html#pre5">¿Es mejor elegir una sesión presencial u online?</a>
-          </li>
-          <li>
-            <a href="index.html#pre6">¿A través de qué medios puedo pagar mi sesión psicológica?</a>
+            <a href="index.php#pre5">¿Es mejor elegir una sesión presencial u online?</a>
           </li>
           <li>
-            <a href="index.html#pre7">¿Las boletas de atención pueden ser reembolsables en todas las
+            <a href="index.php#pre6">¿A través de qué medios puedo pagar mi sesión psicológica?</a>
+          </li>
+          <li>
+            <a href="index.php#pre7">¿Las boletas de atención pueden ser reembolsables en todas las
               ISAPRES?</a>
           </li>
-          <li><a href="index.html#pre8">¿Es posible reagendar una consulta?</a></li>
-          <li><a href="index.html#pre9">¿Puedo cancelar una consulta?</a></li>
-          <li><a href="index.html#pre10">¿Qué es la terapia holística?</a></li>
+          <li><a href="index.php#pre8">¿Es posible reagendar una consulta?</a></li>
+          <li><a href="index.php#pre9">¿Puedo cancelar una consulta?</a></li>
+          <li><a href="index.php#pre10">¿Qué es la terapia holística?</a></li>
           <li>
-            <a href="index.html#pre11">¿En qué consiste La terapia con flores de Bach?</a>
+            <a href="index.php#pre11">¿En qué consiste La terapia con flores de Bach?</a>
           </li>
           <li>
-            <a href="index.html#pre12">¿Puedo agendar una sesión para Flores de Bach?</a>
+            <a href="index.php#pre12">¿Puedo agendar una sesión para Flores de Bach?</a>
           </li>
         </ul>
       </li>
@@ -135,8 +135,11 @@
                   <option value="" style="display: none">
                     Selecciona un motivo
                   </option>
-                  <option value="Primera Sesión de Evaluación">
-                    Primera Sesión de Evaluación
+                  <option value="Primera Sesión de Evaluación Individual">
+                    Primera Sesión de Evaluación (Terapia Individual)
+                  </option>
+                  <option value="Primera Sesión de Evaluación Terapia de Pareja">
+                    Primera Sesión de Evaluación (Terapia de Pareja)
                   </option>
                   <option value="Terapia Individual">Terapia Individual</option>
                   <option value="Terapia de Pareja">Terapia de Pareja</option>
@@ -146,7 +149,8 @@
                 <div class="col-sx-12 col-sm-12">
                   <label>Selecciona una fecha:</label><br>
                   <input type="date" id="txt_date_presencial" name="txt_date_presencial" required
-                    style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
+                    style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;"
+                    min="<?php echo date('Y-m-d'); ?>" />
                   <script>
                     // Opcional: Forzar el calendario al enfocar el campo de entrada
                     document.getElementById('txt_date_presencial').addEventListener('focus', function () {

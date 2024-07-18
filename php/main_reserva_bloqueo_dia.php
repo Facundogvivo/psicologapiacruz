@@ -2,7 +2,7 @@
 
 include ("conexion.php");
 
-$fecha = $_POST["txt_dia_bloqueo"];
+$fecha = $_POST["txt_dia_bloqueo_dia"];
 
 // Consultar las horas ya reservadas para la fecha específica
 $sqlConsulta = "SELECT hora FROM reserva WHERE dia = '$fecha'";

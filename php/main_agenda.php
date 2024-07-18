@@ -1,57 +1,30 @@
 <?php
-session_start();
 
 include ("conexion.php");
 
-if (!isset($_SESSION['reserva'])) {
-  echo "<script> alert('No hay reserva para procesar.'); window.location='../reservaPresencial.php' </script>";
+$tipo = $_POST['txt_tipo'];
+$rut = $_POST['txt_rut'];
+$nombre = $_POST['txt_nombre'];
+$email = $_POST['txt_email'];
+$telefono = $_POST['txt_telefono'];
+$motivo = $_POST['txt_motivo'];
+
+$fecha = $_POST['txt_date'];
+$dateTime = new DateTime($fecha);
+$fechaModificada = $dateTime->format('d-m-Y');
+
+$hora = $_POST['txt_hora'];
+
+// Verificar si la hora ha sido seleccionada
+if (empty($hora)) {
+  echo "<script> alert('Debes seleccionar una hora para agendarla.'); window.location='../agendar.php' </script>";
   exit;
 }
 
-$reserva = $_SESSION['reserva'];
+// Guardar en la base de datos
+$sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('$tipo','$rut', '$nombre', '$email', '$telefono', '$motivo', '$fecha', '$hora')";
 
-// Guardar la reserva en la base de datos
-$sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('Presencial', '{$reserva['rut']}', '{$reserva['nombre']}', '{$reserva['email']}', '{$reserva['telefono']}', '{$reserva['motivo']}', '{$reserva['dia']}', '{$reserva['hora']}')";
-if (mysqli_query($conexion, $sql)) {
-
-
-  // Enviar correo de confirmación
-  $to = $email . ', contacto@facundogonzalezvivo.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
-  $subject = "Confirmación de Reserva";
-  $message = "
-    <html>
-    <head>
-      <title>Confirmación de Reserva</title>
-    </head>
-    <body>
-      <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
-      <p>Detalles de la reserva:</p>
-      <ul>
-        <li>Tipo de consulta: Presencial</li>
-        <li>Rut: $rut</li>
-        <li>Nombre: $nombre</li>
-        <li>Email: $email</li>
-        <li>Teléfono: $telefono</li>
-        <li>Motivo: $motivo</li>
-        <li>Fecha: $fechaModificada</li>
-        <li>Hora: $hora</li>
-      </ul>
-      <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
-    </body>
-    </html>
-    ";
-
-  // Para enviar un correo HTML, debes establecer las cabeceras Content-type
-  $headers = 'MIME-Version: 1.0' . "\r\n";
-  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-  // Cabeceras adicionales
-  $headers .= 'From: contacto@facundogonzalezvivo.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
-
-  // Enviar correo
-  mail($to, $subject, $message, $headers);
-
-
+if (mysqli_query($conn, $sql)) {
   echo "
     <!DOCTYPE html>
     <html lang='en'>
@@ -71,9 +44,14 @@ if (mysqli_query($conexion, $sql)) {
     <body>
       <nav class='sidebar'>
         <div class='logo'>
-          <img src='../images/logo.png' alt='Logo' />
+          <img src='../images/logo2.png' alt='Logo' />
         </div>
         <ul>
+          <li><a href='../horario.php'>Ver calendario</a></li>
+          <li><a href='../bloqueoHoras.html'>Bloqueo de horas</a></li>
+          <li><a href='../agendar.php'>Agendar</a></li>
+          <li><a href='../reagendar.html'>Reagendar</a></li>
+          <hr class='custom-hr'>
           <li><a href='../index.html'>Inicio</a></li>
           <li><a href='../index.html#sobre_mi'>Sobre mí</a></li>
           <li>
@@ -131,59 +109,59 @@ if (mysqli_query($conexion, $sql)) {
             <div id='detalle_reserva'>
     
               <h2 style='text-align: center;'>Reserva realizada</h2><br>
-              <p style='text-align: center;'>{$reserva['nombre']}, tu consulta presencial ha sido agendada con éxito</p>
+              <p style='text-align: center;'>$nombre, tu consulta presencial ha sido agendada con éxito</p>
               <div class='recordatorio col-sm-12'>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Tipo de consulta:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['consulta']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;Presencial</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Rut:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['rut']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$rut</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Nombre:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['nombre']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$nombre</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Email:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['email']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$email</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Teléfono:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['telefono']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$telefono</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Motivo:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['motivo']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$motivo</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Fecha:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['diaModificado']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$fechaModificada</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Hora:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;{$reserva['hora']}</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$hora</p>
                 </div>
               </div>
             </div>
-            <p style='text-align: center; padding-top: 350px;'>Que tengas un buen día, nos vemos el {$reserva['diaModificado']}</p>
+            <p style='text-align: center; padding-top: 350px;'>Que tengas un buen día, nos vemos el $fechaModificada</p>
             <br><br>
             <footer>
               <div style='text-align: center; padding: 10px; background-color: #f1f1f1;'>
@@ -207,9 +185,4 @@ if (mysqli_query($conexion, $sql)) {
     </body>
     
     </html>";
-
-  // Limpiar la sesión
-  unset($_SESSION['reserva']);
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($conexion);
 }

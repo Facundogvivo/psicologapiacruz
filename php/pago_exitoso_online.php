@@ -14,6 +14,44 @@ $reserva = $_SESSION['reserva'];
 $sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('Online', '{$reserva['rut']}', '{$reserva['nombre']}', '{$reserva['email']}', '{$reserva['telefono']}', '{$reserva['motivo']}', '{$reserva['dia']}', '{$reserva['hora']}')";
 if (mysqli_query($conexion, $sql)) {
 
+
+  // Enviar correo de confirmación
+  $to = $email . ', contacto@facundogonzalezvivo.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
+  $subject = "Confirmación de Reserva";
+  $message = "
+    <html>
+    <head>
+      <title>Confirmación de Reserva</title>
+    </head>
+    <body>
+      <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
+      <p>Detalles de la reserva:</p>
+      <ul>
+        <li>Tipo de consulta: Presencial</li>
+        <li>Rut: $rut</li>
+        <li>Nombre: $nombre</li>
+        <li>Email: $email</li>
+        <li>Teléfono: $telefono</li>
+        <li>Motivo: $motivo</li>
+        <li>Fecha: $fechaModificada</li>
+        <li>Hora: $hora</li>
+      </ul>
+      <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
+    </body>
+    </html>
+    ";
+
+  // Para enviar un correo HTML, debes establecer las cabeceras Content-type
+  $headers = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+  // Cabeceras adicionales
+  $headers .= 'From: contacto@facundogonzalezvivo.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
+
+  // Enviar correo
+  mail($to, $subject, $message, $headers);
+
+
   echo "
     <!DOCTYPE html>
     <html lang='en'>

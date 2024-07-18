@@ -46,10 +46,10 @@
     </div>
     <nav class="sidebar">
         <div class="logo">
-            <img src="images/logo.png" alt="Logo" />
+            <img src="images/logo2.png" alt="Logo" />
         </div>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.php">Inicio</a></li>
             <li><a href="#sobre_mi">Sobre mí</a></li>
             <li>
                 <a href="#metodologia" class="btn-primero">Metodología<span
@@ -115,7 +115,7 @@
                     <div>
                         <p style="text-align: justify;"><img src="images/foto.jpg"
                                 style="float: right; width: 35%; max-width: 300px; padding: 0 30px 30px 30px">
-                            Psicóloga Clínica y Terapeuta holística. Enfocada en contemplaral
+                            Psicóloga Clínica y Terapeuta holística. Enfocada en contemplar al
                             ser humano en cuerpo, mente y espíritu; como un todo. Propongo
                             alternativas de prevención y atención a problemas psicológicos que
                             afectan la salud mental y la vida diaria de mis pacientes, que
@@ -157,20 +157,23 @@
                     <div id="consultas">
                         <br />
                         <br />
-                        <button class="botonConsulta hover-move" style="float: left">
-                            <a href="reservaPresencial.php" style="text-decoration: none;">Agendar Consulta
-                                Presencial</a>
-                        </button>
-                        <button class="botonConsulta hover-move" style="float: right">
-                            <a href="reservaOnline.php" style="text-decoration: none;">Agendar Consulta Online</a>
-                        </button>
+
+                        <a href="reservaPresencial.php" style="text-decoration: none;"><button
+                                class="botonConsulta hover-move" style="float: left">Agendar Consulta
+                                Presencial</button></a>
+
+
+                        <a href="reservaOnline.php" style="text-decoration: none;"><button
+                                class="botonConsulta hover-move" style="float: right">Agendar Consulta
+                                Online</button></a>
+
                     </div>
                 </div>
                 <br />
                 <br />
                 <br />
                 <br />
-                <hr class="custom-hr">
+                <hr class=" custom-hr">
                 <div id="metodologia">
                     <br />
                     <br />
@@ -285,7 +288,8 @@
                                 idealmente trastornos graves, la perspectiva desde la cual
                                 aborda la problemática es principalmente farmacológica. .
                             </li>
-                            <li style="text-align: justify;">La terapia con ambos es beneficioso en casos
+                            <li style="text-align: justify;">La terapia con ambos es beneficioso en
+                                casos
                                 complejos y para un tratamiento integral, es decir, no será
                                 excluyente. La elección dependerá de tus necesidades
                                 particulares y del tipo de apoyo que requieras.
@@ -331,10 +335,9 @@
                     </h4>
                     <div id="div6" class="hidden">
                         <ul>
-                            <li style="text-align: justify;">Las consultas presenciales se pueden pagar
-                                en efectivo o con tarjetas bancarias (débito y crédito).</li>
-                            <li style="text-align: justify;">Las consultas online se pueden pagar con
-                                tarjetas de débito o crédito a través de Mercado Pago o a través de transferencias
+                            <li style="text-align: justify;">Las consultas se pueden pagar con
+                                tarjetas de débito o crédito a través de Mercado Pago o a través de
+                                transferencias
                                 bancarias.</li>
                         </ul>
                         <br />
@@ -362,8 +365,9 @@
                     </h4>
                     <div id="div8" class="hidden">
                         <ul>
-                            <li style="text-align: justify;">Sí, puedes hacerlo contactándote a mi email: <a
-                                    href="mailto:contacto@psicologapiacruz.cl">contacto@psicologapiacruz.cl</a></li>
+                            <li style="text-align: justify;">Sí, puedes hacerlo contactándote a mi
+                                email: <a href="mailto:contacto@psicologapiacruz.cl">contacto@psicologapiacruz.cl</a>
+                            </li>
                         </ul>
                         <br />
                     </div>
@@ -389,7 +393,8 @@
                     </h4>
                     <div id="div10" class="hidden">
                         <ul>
-                            <li style="text-align: justify;">Es un enfoque de tratamiento que considera a
+                            <li style="text-align: justify;">Es un enfoque de tratamiento que considera
+                                a
                                 la persona en su totalidad: mente, cuerpo y espíritu. Se basa en
                                 la creencia de que todos estos aspectos están interconectados y
                                 que, para lograr un bienestar completo, es necesario abordarlos
@@ -462,7 +467,8 @@
 
                 <footer>
                     <div style="text-align: center; padding: 10px; background-color: #f1f1f1;">
-                        <p>&copy; <span id="currentYear"></span> Facundo Gonzalez Vivo. Todos los derechos reservados.
+                        <p>&copy; <span id="currentYear"></span> Facundo Gonzalez Vivo. Todos los
+                            derechos reservados.
                         </p>
                         <p>Diseñado y programado por <a href="http://www.facundogonzalezvivo.cl" target="_blank">Facundo
                                 Gonzalez
