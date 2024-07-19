@@ -38,9 +38,9 @@ for ($fecha = $fechaInicio; $fecha < $fechaFin; $fecha->modify('+1 day')) {
             // Puedes dejar este mensaje si quieres alertar sobre cada día bloqueado exitosamente
             // echo "<script> alert('Día $fechaStr bloqueado con éxito'); </script>";
         } else {
-            echo "<script> alert('Error al bloquear las horas para el día $fechaStr.'); window.location='../bloqueoHoras.html' </script>";
+            echo "<script> alert('Error al bloquear las horas para el día $fechaStr.'); window.location='../bloqueoHoras.php' </script>";
         }
     }
 }
 
-echo "<script> alert('Dias bloqueados con exito: desde el $fechaDesde hasta $fechaHasta'); window.location='../bloqueoHoras.html' </script>";
+echo "<script> alert('Dias bloqueados con exito: desde el $fechaDesde hasta $fechaHasta'); window.location='../bloqueoHoras.php' </script>";

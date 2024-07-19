@@ -33,7 +33,7 @@
   </div>
   <nav class="sidebar">
     <div class="logo">
-      <img src="images/logo2.png" alt="Logo" />
+      <img src="images/logoPiaCruz.png" alt="Logo" />
     </div>
     <ul>
       <li><a href="index.php">Inicio</a></li>

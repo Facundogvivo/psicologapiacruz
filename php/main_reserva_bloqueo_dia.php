@@ -27,10 +27,10 @@ if (!empty($valoresInsertar)) {
 	$sqlgrabar = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES " . implode(", ", $valoresInsertar);
 
 	if (mysqli_query($conn, $sqlgrabar)) {
-		echo "<script> alert('Dia bloqueado con exito para las horas disponibles en la fecha: $fecha'); window.location='../bloqueoHoras.html' </script>";
+		echo "<script> alert('Dia bloqueado con exito para las horas disponibles en la fecha: $fecha'); window.location='../bloqueoHoras.php' </script>";
 	} else {
-		echo "<script> alert('Error al bloquear las horas.'); window.location='../bloqueoHoras.html' </script>";
+		echo "<script> alert('Error al bloquear las horas.'); window.location='../bloqueoHoras.php' </script>";
 	}
 } else {
-	echo "<script> alert('Todas las horas ya estan ocupadas en la fecha: $fecha'); window.location='../bloqueoHoras.html' </script>";
+	echo "<script> alert('Todas las horas ya estan ocupadas en la fecha: $fecha'); window.location='../bloqueoHoras.php' </script>";
 }
