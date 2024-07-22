@@ -5,6 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="Shortcut Icon" type="image/x-icon" href="images/logo.ico" />
+  <meta name="description"
+    content="Psicóloga Clínica y Terapeuta Holística, especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias y más, integrando psicología clínica y medicina complementaria para un bienestar integral. Agenda tu cita hoy.">
   <title>Pía Cruz Dote | Psicóloga clínica</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />

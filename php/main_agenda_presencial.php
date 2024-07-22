@@ -72,6 +72,8 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
       <meta charset='utf-8' />
       <title>Pía Cruz Dote | Psicóloga clínica</title>
       <link rel='Shortcut Icon' type='image/x-icon' href='../images/logo.ico' />
+    <meta name='description'
+        content='Psicóloga Clínica y Terapeuta Holística, especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias y más, integrando psicología clínica y medicina complementaria para un bienestar integral. Agenda tu cita hoy.'>
       <link rel='stylesheet' href='../css/style.css' />
       <link rel='stylesheet' href='../css/bootstrap.min.css' />
       <script src='https://code.jquery.com/jquery-3.4.1.js' />
