@@ -8,17 +8,14 @@
     <title>Pía Cruz Dote | Psicóloga clínica</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
-    <script src="https://code.jquery.com/jquery-3.4.1.js" />
-    </script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         .custom-hr {
             border: 0;
             height: 3px;
-            /* Grosor de la línea */
             background: #6d28d9;
-            /* Color de la línea */
         }
     </style>
     <script>
@@ -103,85 +100,84 @@
     <section class="about-us">
         <div class="about">
             <div class="text">
-                <h1>Agendar Consulta</h1>
+                <h1>Modificar Consulta</h1>
                 <hr style="border: 0; height: 3px; background: #6d28d9;">
-                <div id="consulta_presencial">
-                    <h5>Modalidad Presencial</h5>
+                <div id="modificar_consulta">
+                    <h5>Modificar Consulta</h5>
                     <br />
-                    <div class="recordatorio">
-                        <p>&#9201;&#65039;&nbsp;&nbsp; Duración sesión de 60 minutos</p>
-                        <p>&#128204;&nbsp;&nbsp; Eliodoro Yáñez 2979 Oficina 410</p>
-                        <p>&#128647;&nbsp;&nbsp; Estación Cristóbal Colón</p>
-                    </div>
-
                     <div class="recordatorio" style="margin-top: 15px">
-                        <h5>Reserva de Consulta Presencial</h5>
-                        <form id="bookingForm" action="php/main_agenda_presencial.php" method="post">
+                        <form id="modifyForm" action="php/main_modificar_consulta.php" method="post">
                             <div class="row">
+                                <div class="col-sx-12 col-sm-12">
+                                    <label>Seleccione su cita agendada</label><br>
+                                    <select id="select_cita" name="select_cita" required
+                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;">
+                                        <option value="" style="display: none">
+                                            Selecciona una cita
+                                        </option>
+                                        <!-- Opciones generadas dinámicamente desde el servidor -->
+                                    </select>
+                                </div>
                                 <div class="col-sx-12 col-sm-6">
                                     <label>Nombre y apellido</label><br>
-                                    <input type="text" id="txt_nombre_presencial" name="txt_nombre_presencial" required
-                                        onchange="mostrarPalabra('txt_nombre_presencial');"
-                                        value="Facundo Gonzalez Vivo"
+                                    <input type="text" id="txt_nombre_modificar" name="txt_nombre_modificar" required
+                                        onchange="mostrarPalabra('txt_nombre_modificar');"
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>RUT <span>12345678-K</span></label><br>
-                                    <input type="text" id="txt_rut_presencial" name="txt_rut_presencial" required
-                                        value="14645916-1"
+                                    <label>RUT</label><br>
+                                    <input type="text" id="txt_rut_modificar" name="txt_rut_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Email <span>nombre@mail.com</span></label><br>
-                                    <input type="email" id="txt_email_presencial" name="txt_email_presencial" required
-                                        value="facundo.gvivo@gmail.com"
+                                    <label>Email</label><br>
+                                    <input type="email" id="txt_email_modificar" name="txt_email_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Teléfono <span>+56987654321</span></label><br>
-                                    <input type="tel" id="txt_telefono_presencial" name="txt_telefono_presencial"
-                                        required value="+56966992704"
+                                    <label>Teléfono</label><br>
+                                    <input type="tel" id="txt_telefono_modificar" name="txt_telefono_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-12">
                                     <label>Motivo de Consulta</label><br>
-                                    <select id="txt_motivo_presencial" name="txt_motivo_presencial" required
-                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
-                                    <option value="" style="display: none">
-                                        Selecciona un motivo
-                                    </option>
-                                    <option value="Primera Sesión de Evaluación Individual">
-                                        Primera Sesión de Evaluación (Terapia Individual)
-                                    </option>
-                                    <option value="Primera Sesión de Evaluación Terapia de Pareja">
-                                        Primera Sesión de Evaluación (Terapia de Pareja)
-                                    </option>
-                                    <option value="Terapia Individual">Terapia Individual</option>
-                                    <option value="Terapia de Pareja">Terapia de Pareja</option>
-                                    <option value="Terapia Floral">Terapia Floral</option>
+                                    <select id="txt_motivo_modificar" name="txt_motivo_modificar" required
+                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;">
+                                        <option value="" style="display: none">
+                                            Selecciona un motivo
+                                        </option>
+                                        <option value="Primera Sesión de Evaluación Individual">
+                                            Primera Sesión de Evaluación (Terapia Individual)
+                                        </option>
+                                        <option value="Primera Sesión de Evaluación Terapia de Pareja">
+                                            Primera Sesión de Evaluación (Terapia de Pareja)
+                                        </option>
+                                        <option value="Terapia Individual">Terapia Individual</option>
+                                        <option value="Terapia de Pareja">Terapia de Pareja</option>
+                                        <option value="Terapia Floral">Terapia Floral</option>
                                     </select>
                                 </div>
                                 <div class="col-sx-12 col-sm-12">
-                                    <label>Selecciona una fecha:</label><br>
-                                    <input type="date" id="txt_date_presencial" name="txt_date_presencial" required
-                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
+                                    <label>Selecciona una nueva fecha:</label><br>
+                                    <input type="date" id="txt_date_modificar" name="txt_date_modificar" required
+                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;"
+                                        min="<?php echo date('Y-m-d'); ?>" />
                                     <script>
-                                        // Opcional: Forzar el calendario al enfocar el campo de entrada
-                                        document.getElementById('txt_date_presencial').addEventListener('focus', function () {
+                                        document.getElementById('txt_date_modificar').addEventListener('focus', function () {
                                             this.showPicker();
                                         });
                                     </script>
-                                    <div id="timeslotsPresencial">
+                                    <div id="timeslotsModificar">
                                         <!-- Los horarios disponibles se mostrarán aquí -->
                                     </div>
                                     <br />
-                                    <input type="text" id="txt_hora_presencial" name="txt_hora_presencial" readonly
+                                    <input type="text" id="txt_hora_modificar" name="txt_hora_modificar" readonly
                                         hidden />
                                 </div>
                             </div>
-                            <br /><button class="hover-move  boton" id="submitButton" type="submit"
+                            <br /><button class="hover-move boton" id="modifyButton" type="submit"
                                 style="color: #000; padding: 15px;">
-                                <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Reservar y Pagar
+                                <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Modificar y Guardar
                             </button>
                         </form>
                     </div>
@@ -204,35 +200,31 @@
                         document.getElementById('currentYear').textContent = new Date().getFullYear();
                     </script>
                     <script>
-
-                        // Función para verificar si es fin de semana
                         function isWeekend(date) {
                             const day = date.getDay();
                             return day === 5 || day === 6; // Friday (5) or Saturday (6)
                         }
 
-                        const dateInputPresencial = document.getElementById("txt_date_presencial");
-                        const timeslotsDivPresencial = document.getElementById("timeslotsPresencial");
+                        const dateInputModificar = document.getElementById("txt_date_modificar");
+                        const timeslotsDivModificar = document.getElementById("timeslotsModificar");
 
                         const timeslots = ["08:00", "09:00", "10:00", "11:00"];
                         let occupiedSlots = {};
 
-                        // Escuchar cambios en la fecha
-                        dateInputPresencial.addEventListener("change", () => {
-                            const selectedDatePresencial = new Date(dateInputPresencial.value);
-                            if (isWeekend(selectedDatePresencial)) {
+                        dateInputModificar.addEventListener("change", () => {
+                            const selectedDateModificar = new Date(dateInputModificar.value);
+                            if (isWeekend(selectedDateModificar)) {
                                 alert("No se puede reservar horas los fines de semana.");
-                                dateInputPresencial.value = ""; // Reset the date input
-                                timeslotsDivPresencial.style.display = 'none';
+                                dateInputModificar.value = ""; // Reset the date input
+                                timeslotsDivModificar.style.display = 'none';
                             } else {
-                                renderTimeslotsPresencial(dateInputPresencial.value);
-                                timeslotsDivPresencial.style.display = 'block';
+                                renderTimeslotsModificar(dateInputModificar.value);
+                                timeslotsDivModificar.style.display = 'block';
                             }
                         });
 
-                        // Función para renderizar los horarios disponibles
-                        function renderTimeslotsPresencial(date) {
-                            timeslotsDivPresencial.innerHTML = "";
+                        function renderTimeslotsModificar(date) {
+                            timeslotsDivModificar.innerHTML = "";
                             const occupied = occupiedSlots[date] || [];
 
                             timeslots.forEach((time) => {
@@ -246,21 +238,55 @@
                                     timeslot.addEventListener("click", () => {
                                         document.querySelectorAll(".timeslot").forEach((ts) => ts.classList.remove("selected"));
                                         timeslot.classList.add("selected");
-                                        document.getElementById("txt_hora_presencial").value = time;
-
+                                        document.getElementById("txt_hora_modificar").value = time;
                                     });
                                 }
-                                timeslotsDivPresencial.appendChild(timeslot);
+                                timeslotsDivModificar.appendChild(timeslot);
                             });
                         }
 
-                        // Obtener slots ocupados desde el servidor
                         fetch('php/get_occupied_slots.php')
                             .then(response => response.json())
                             .then(data => {
                                 occupiedSlots = data;
                             })
                             .catch(error => console.error('Error fetching occupied slots:', error));
+                        // Función para convertir la fecha de yyyy-mm-dd a dd-mm-yyyy
+                        function formatDate(isoDate) {
+                            const [year, month, day] = isoDate.split('-');
+                            return `${day}-${month}-${year}`;
+                        }
+
+                        // Cargar citas agendadas del servidor y llenar el select
+                        fetch('php/get_agendadas.php')
+                            .then(response => response.json())
+                            .then(data => {
+                                const selectCita = document.getElementById('select_cita');
+                                data.forEach(cita => {
+                                    const option = document.createElement('option');
+                                    option.value = cita.id;
+                                    option.textContent = `${formatDate(cita.dia)} - ${cita.hora}`;
+                                    selectCita.appendChild(option);
+                                });
+                            })
+                            .catch(error => console.error('Error fetching agendadas:', error));
+
+                        // Llenar formulario con datos de cita seleccionada
+                        document.getElementById('select_cita').addEventListener('change', function () {
+                            const citaId = this.value;
+                            if (citaId) {
+                                fetch(`php/get_cita.php?id=${citaId}`)
+                                    .then(response => response.json())
+                                    .then(data => {
+                                        document.getElementById('txt_nombre_modificar').value = data.nombre;
+                                        document.getElementById('txt_rut_modificar').value = data.rut;
+                                        document.getElementById('txt_email_modificar').value = data.email;
+                                        document.getElementById('txt_telefono_modificar').value = data.telefono;
+                                        document.getElementById('txt_motivo_modificar').value = data.motivo;
+                                    })
+                                    .catch(error => console.error('Error fetching cita:', error));
+                            }
+                        });
 
                     </script>
 
