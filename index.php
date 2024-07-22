@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Shortcut Icon" type="image/x-icon" href="images/logo.ico" />
     <meta name="description"
-        content="Psicóloga Clínica y Terapeuta Holística, especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias y más, integrando psicología clínica y medicina complementaria para un bienestar integral. Agenda tu cita hoy.">
+        content="Psicóloga especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias, etc.">
     <title>Pía Cruz Dote | Psicóloga clínica</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -14,6 +14,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/index.php">
     <style>
         .custom-hr {
             border: 0;
@@ -48,7 +49,7 @@
     </div>
     <nav class="sidebar">
         <div class="logo">
-            <img src="images/logoPiaCruz.png" alt="Logo" />
+            <img src="images/logoPiaCruz.png" alt="Logo Pia Cruz" />
         </div>
         <ul>
             <li><a href="index.php">Inicio</a></li>
@@ -102,6 +103,7 @@
             </li>
         </ul>
     </nav>
+    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
     <section class="about-us">
 
         <div class="about">
@@ -116,7 +118,8 @@
                     <br />
                     <div>
                         <p style="text-align: justify;"><img src="images/foto.jpg"
-                                style="float: right; width: 35%; max-width: 300px; padding: 0 30px 30px 30px">
+                                style="float: right; width: 35%; max-width: 300px; padding: 0 30px 30px 30px"
+                                alt="Pia Cruz Dote">
                             Psicóloga Clínica y Terapeuta holística. Enfocada en contemplar al
                             ser humano en cuerpo, mente y espíritu; como un todo. Propongo
                             alternativas de prevención y atención a problemas psicológicos que
@@ -458,8 +461,8 @@
                 </h5>
                 <br />
                 <br />
-                <marquee width="100%" height="120px" behavior="alternate">&nbsp;&nbsp; <img src="images/banmedica.jpg"
-                        alt="" />&nbsp;&nbsp;
+                <marquee width="100%" height="120px" behavior="alternate">&nbsp;&nbsp;
+                    <img src="images/banmedica.jpg" alt="Banmedica" height="100px;" />&nbsp;&nbsp;
                     <img src="images/colmena.jpg" alt="Colmena" height="100px;" />&nbsp;&nbsp;
                     <img src="images/consalud.jpg" alt="Consalud" height="100px;" />&nbsp;&nbsp;
                     <img src="images/cruzblanca.jpg" alt="Cruz Blanca" height="100px;" />&nbsp;&nbsp;
@@ -474,7 +477,7 @@
                         </p>
                         <p>Diseñado y programado por <a href="http://www.facundogonzalezvivo.cl" target="_blank">Facundo
                                 Gonzalez
-                                Vivo</a> <img src="images/facundo.jpg" alt="Logo"
+                                Vivo</a> <img src="images/facundo.jpg" alt="Logo Facudno Gonzalez Vivo"
                                 style="width: 30px; border-radius: 5px;" />
                         </p>
                     </div>

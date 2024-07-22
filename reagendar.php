@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="Shortcut Icon" type="image/x-icon" href="images/logo.ico" />
     <meta name="description"
-        content="Psicóloga Clínica y Terapeuta Holística, especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias y más, integrando psicología clínica y medicina complementaria para un bienestar integral. Agenda tu cita hoy.">
+        content="Psicóloga especializada en terapia individual y de pareja. Aborda problemas de ansiedad, depresión, estrés, fobias, etc.">
     <title>Pía Cruz Dote | Psicóloga clínica</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/reagendar.php">
     <style>
         .custom-hr {
             border: 0;
@@ -99,6 +100,7 @@
             </li>
         </ul>
     </nav>
+    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
     <section class="about-us">
         <div class="about">
             <div class="text">
