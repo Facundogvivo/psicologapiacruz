@@ -14,7 +14,6 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/agendar.php">
     <style>
         .custom-hr {
             border: 0;
@@ -22,6 +21,14 @@
             /* Grosor de la línea */
             background: #6d28d9;
             /* Color de la línea */
+        }
+
+        .hover-move {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-move:hover {
+            transform: translateY(-5px);
         }
     </style>
     <script>
@@ -35,6 +42,74 @@
 
             document.getElementById(palabra).value = palabras.join(" ");
         }
+        var FnRut = {
+            // Valida el rut con su cadena completa "XX.XXX.XXX-X"
+            validaRut: function (rutCompleto) {
+                // Verificar formato con puntos y guión
+                if (!/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rutCompleto))
+                    return false;
+
+                // Eliminar puntos y guión para validar
+                rutCompleto = rutCompleto.replace(/\./g, '').replace('-', '');
+
+                var tmp = rutCompleto.slice(0, -1);
+                var digv = rutCompleto.slice(-1).toLowerCase();
+
+                return (FnRut.dv(tmp) == digv);
+            },
+            dv: function (T) {
+                var M = 0, S = 1;
+                for (; T; T = Math.floor(T / 10))
+                    S = (S + T % 10 * (9 - M++ % 6)) % 11;
+                return S ? S - 1 : 'k';
+            }
+        }
+
+        $(document).ready(function () {
+            $("#txt_rut").blur(function () {
+                if (FnRut.validaRut($("#txt_rut").val())) {
+                    $("#msgerrorRut").html("&#10004;&#65039; El Rut es válido");
+                    document.getElementById('txt_rut').style.backgroundColor = "";
+                } else {
+                    $("#msgerrorRut").html("&#10006;&#65039; El Rut no es válido");
+                    alert("El Rut no es válido");
+                    document.getElementById('txt_rut').value = "";
+                    document.getElementById('txt_rut').style.backgroundColor = "#ffcccc";
+                }
+            });
+
+            $("#txt_rut").focus(function () {
+                document.getElementById('txt_rut').style.backgroundColor = "";
+            });
+        });
+
+        var FnCorreo = {
+            // Valida el correo electrónico
+            validaCorreo: function (correo) {
+                // Expresión regular para validar el formato del correo electrónico
+                var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(correo);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#txt_email").blur(function () {
+                if (FnCorreo.validaCorreo($("#txt_email").val())) {
+                    $("#msgerrorCorreo").html("&#10004;&#65039; El Correo es válido");
+                    document.getElementById('txt_email').style.backgroundColor = "";
+                } else {
+                    $("#msgerrorCorreo").html("&#10006;&#65039; El Correo no es válido");
+                    alert("El Correo no es válido");
+                    document.getElementById('txt_email').value = "";
+                    document.getElementById('txt_email').style.backgroundColor = "#ffcccc";
+
+                }
+            });
+
+            $("#txt_email").focus(function () {
+                document.getElementById('txt_email').style.backgroundColor = "";
+            });
+        });
     </script>
 </head>
 
@@ -44,7 +119,7 @@
     </div>
     <nav class="sidebar">
         <div class="logo">
-            <img src="images/logoPiaCruz.png" alt="Logo" />
+            <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
         </div>
         <ul>
             <li><a href='horario.php'>Ver calendario</a></li>
@@ -103,7 +178,7 @@
             </li>
         </ul>
     </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+
     <section class="about-us">
         <div class="about">
             <div class="text">
@@ -134,24 +209,24 @@
                                 <div class="col-sx-12 col-sm-6">
                                     <label>Nombre y apellido</label><br>
                                     <input type="text" id="txt_nombre" name="txt_nombre" required
-                                        onchange="mostrarPalabra('txt_nombre');" value="Facundo Gonzalez Vivo"
+                                        onchange="mostrarPalabra('txt_nombre');"
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>RUT <span>12345678-K</span></label><br>
-                                    <input type="text" id="txt_rut" name="txt_rut" required value="14645916-1"
+                                    <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span
+                                            id="msgerrorRut"></span></label><br>
+                                    <input type="text" id="txt_rut" name="txt_rut" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Email <span>nombre@mail.com</span></label><br>
+                                    <label>Email <span>nombre@mail.com</span>&nbsp;&nbsp;&nbsp;<span
+                                            id="msgerrorCorreo"></span></label><br>
                                     <input type="email" id="txt_email" name="txt_email" required
-                                        value="facundo.gvivo@gmail.com"
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
                                     <label>Teléfono <span>+56987654321</span></label><br>
                                     <input type="tel" id="txt_telefono" name="txt_telefono" required
-                                        value="+56966992704"
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-12">
@@ -190,8 +265,7 @@
                                     <input type="text" id="txt_hora" name="txt_hora" readonly hidden />
                                 </div>
                             </div>
-                            <br /><button class="hover-move  boton" id="submitButton" type="submit"
-                                style="color: #000; padding: 15px;">
+                            <br /><button class="boton hover-move" id="submitButton" type="submit">
                                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Reservar
                             </button>
                         </form>
@@ -280,6 +354,7 @@
         </div>
     </section>
     <script src="js/app.js"></script>
+    <script src="js/validarRUT.js"></script>
 
 </body>
 

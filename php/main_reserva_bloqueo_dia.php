@@ -19,7 +19,7 @@ $horasBloqueo = ['08:00', '09:00', '10:00', '11:00'];
 $valoresInsertar = [];
 foreach ($horasBloqueo as $hora) {
 	if (!in_array($hora, $horasOcupadas)) {
-		$valoresInsertar[] = "('Bloqueado','Bloqueado','Bloqueado','Bloqueado','Bloqueado', 'Bloqueado', '$fecha', '$hora')";
+		$valoresInsertar[] = "('bloqueado','bloqueado','bloqueado','bloqueado','bloqueado', 'bloqueado', '$fecha', '$hora')";
 	}
 }
 

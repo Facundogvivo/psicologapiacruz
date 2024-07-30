@@ -14,9 +14,17 @@
   </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <meta http-equiv="refresh"
-    content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/reservaPresencial.php">
+  <style>
+    .hover-move {
+      transition: transform 0.3s ease;
+    }
 
+    .hover-move:hover {
+      transform: translateY(-5px);
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
     function mostrarPalabra(palabra) {
       const miOracion = document.getElementById(palabra).value;
@@ -28,6 +36,76 @@
 
       document.getElementById(palabra).value = palabras.join(" ");
     }
+
+    var FnRut = {
+      // Valida el rut con su cadena completa "XX.XXX.XXX-X"
+      validaRut: function (rutCompleto) {
+        // Verificar formato con puntos y guión
+        if (!/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rutCompleto))
+          return false;
+
+        // Eliminar puntos y guión para validar
+        rutCompleto = rutCompleto.replace(/\./g, '').replace('-', '');
+
+        var tmp = rutCompleto.slice(0, -1);
+        var digv = rutCompleto.slice(-1).toLowerCase();
+
+        return (FnRut.dv(tmp) == digv);
+      },
+      dv: function (T) {
+        var M = 0, S = 1;
+        for (; T; T = Math.floor(T / 10))
+          S = (S + T % 10 * (9 - M++ % 6)) % 11;
+        return S ? S - 1 : 'k';
+      }
+    }
+
+    $(document).ready(function () {
+      $("#txt_rut_presencial").blur(function () {
+        if (FnRut.validaRut($("#txt_rut_presencial").val())) {
+          $("#msgerrorRut").html("&#10004;&#65039; El Rut es válido");
+          document.getElementById('txt_rut_presencial').style.backgroundColor = "";
+        } else {
+          $("#msgerrorRut").html("&#10006;&#65039; El Rut no es válido");
+          alert("El Rut no es válido");
+          document.getElementById('txt_rut_presencial').value = "";
+          document.getElementById('txt_rut_presencial').style.backgroundColor = "#ffcccc";
+        }
+      });
+
+      $("#txt_rut_presencial").focus(function () {
+        document.getElementById('txt_rut_presencial').style.backgroundColor = "";
+      });
+    });
+
+    var FnCorreo = {
+      // Valida el correo electrónico
+      validaCorreo: function (correo) {
+        // Expresión regular para validar el formato del correo electrónico
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(correo);
+      }
+    }
+
+    $(document).ready(function () {
+      $("#txt_email_presencial").blur(function () {
+        if (FnCorreo.validaCorreo($("#txt_email_presencial").val())) {
+          $("#msgerrorCorreo").html("&#10004;&#65039; El Correo es válido");
+          document.getElementById('txt_email_presencial').style.backgroundColor = "";
+        } else {
+          $("#msgerrorCorreo").html("&#10006;&#65039; El Correo no es válido");
+          alert("El Correo no es válido");
+          document.getElementById('txt_email_presencial').value = "";
+          document.getElementById('txt_email_presencial').style.backgroundColor = "#ffcccc";
+
+        }
+      });
+
+      $("#txt_email_presencial").focus(function () {
+        document.getElementById('txt_email_presencial').style.backgroundColor = "";
+      });
+    });
+
   </script>
 </head>
 
@@ -37,7 +115,7 @@
   </div>
   <nav class="sidebar">
     <div class="logo">
-      <img src="images/logoPiaCruz.png" alt="Logo" />
+      <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
     </div>
     <ul>
       <li><a href="index.php">Inicio</a></li>
@@ -91,7 +169,7 @@
       </li>
     </ul>
   </nav>
-  <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+
   <section class="about-us">
     <div class="about">
       <div class="text">
@@ -102,8 +180,8 @@
           <br />
           <div class="recordatorio">
             <p>&#9201;&#65039;&nbsp;&nbsp; Duración sesión de 60 minutos</p>
-            <p>&#128204;&nbsp;&nbsp; Eliodoro Yáñez 2979 Oficina 410</p>
-            <p>&#128647;&nbsp;&nbsp; Estación Cristóbal Colón</p>
+            <p>&#128204;&nbsp;&nbsp; Eliodoro Yáñez 2979 Oficina 410, Providencia.</p>
+            <p>&#128647;&nbsp;&nbsp; Estación de metro Cristóbal Colón</p>
           </div>
 
           <div class="recordatorio" style="margin-top: 15px">
@@ -113,24 +191,23 @@
                 <div class="col-sx-12 col-sm-6">
                   <label>Nombre y apellido</label><br>
                   <input type="text" id="txt_nombre_presencial" name="txt_nombre_presencial" required
-                    onchange="mostrarPalabra('txt_nombre_presencial');" value="Facundo Gonzalez Vivo"
+                    onchange="mostrarPalabra('txt_nombre_presencial');"
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
-                  <label>RUT <span>12345678-K</span></label><br>
-                  <input type="text" id="txt_rut_presencial" name="txt_rut_presencial" required value="14645916-1"
+                  <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span id="msgerrorRut"></span></label><br>
+                  <input type="text" id="txt_rut_presencial" name="txt_rut_presencial" required
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
-                  <label>Email <span>nombre@mail.com</span></label><br>
+                  <label>Email <span>nombre@mail.com</span>&nbsp;&nbsp;&nbsp;<span
+                      id="msgerrorCorreo"></span></label><br>
                   <input type="email" id="txt_email_presencial" name="txt_email_presencial" required
-                    value="facundo.gvivo@gmail.com"
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
                   <label>Teléfono <span>+56987654321</span></label><br>
                   <input type="tel" id="txt_telefono_presencial" name="txt_telefono_presencial" required
-                    value="+56966992704"
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-12">
@@ -146,10 +223,12 @@
                   <option value="Primera Sesión de Evaluación Terapia de Pareja">
                     Primera Sesión de Evaluación (Terapia de Pareja)
                   </option>
-                  <option value="Terapia Individual">Terapia Individual</option>
-                  <option value="Terapia de Pareja">Terapia de Pareja</option>
-                  <option value="Terapia Floral">Terapia Floral</option>
+                  <option value="Terapia Individual" data-precio="30000">Terapia Individual</option>
+                  <option value="Terapia de Pareja" data-precio="35000">Terapia de Pareja</option>
+                  <option value="Terapia Floral" data-precio="30000">Terapia Floral</option>
                   </select>
+                  <span>Solamente las primeras sesiones son gratis</span>
+                  <input type="hidden" id="precio" name="precio">
                 </div>
                 <div class="col-sx-12 col-sm-12">
                   <label>Selecciona una fecha:</label><br>
@@ -189,6 +268,13 @@
 
           <script>
             document.getElementById('currentYear').textContent = new Date().getFullYear();
+          </script>
+          <script>
+            document.getElementById('txt_motivo_presencial').addEventListener('change', function () {
+              var selectedOption = this.options[this.selectedIndex];
+              var precio = selectedOption.getAttribute('data-precio');
+              document.getElementById('precio').value = precio;
+            });
           </script>
           <script>
 

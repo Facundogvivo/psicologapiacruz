@@ -1,9 +1,9 @@
 <?php
 
 // $dbhost = "localhost";
-// $dbuser = "cfa98663";
-// $dbpass = "HSOkYskbkdaKjSYzJrrN";
-// $dbname = "cfa98663_bd_facundo";
+// $dbuser = "cps102326";
+// $dbpass = "SEEmEtGNOndbpJIEFrqn";
+// $dbname = "cps102326_bd_piacruz";
 
 $dbhost = "localhost";
 $dbuser = "root";

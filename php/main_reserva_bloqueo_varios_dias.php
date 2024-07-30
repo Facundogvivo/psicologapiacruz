@@ -27,7 +27,7 @@ for ($fecha = $fechaInicio; $fecha < $fechaFin; $fecha->modify('+1 day')) {
     $valoresInsertar = [];
     foreach ($horasBloqueo as $hora) {
         if (!in_array($hora, $horasOcupadas)) {
-            $valoresInsertar[] = "('Bloqueado','Bloqueado','Bloqueado','Bloqueado','Bloqueado', 'Bloqueado', '$fechaStr', '$hora')";
+            $valoresInsertar[] = "('bloqueado','bloqueado','bloqueado','bloqueado','bloqueado', 'bloqueado', '$fechaStr', '$hora')";
         }
     }
 

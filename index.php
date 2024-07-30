@@ -14,7 +14,6 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
-    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/index.php">
     <style>
         .custom-hr {
             border: 0;
@@ -49,7 +48,7 @@
     </div>
     <nav class="sidebar">
         <div class="logo">
-            <img src="images/logoPiaCruz.png" alt="Logo Pia Cruz" />
+            <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
         </div>
         <ul>
             <li><a href="index.php">Inicio</a></li>
@@ -103,11 +102,11 @@
             </li>
         </ul>
     </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
     <section class="about-us">
 
         <div class="about">
             <div class="text">
+                <h1><b>Psicóloga Pía Cruz Dote</b></h1>
 
                 <br />
                 <hr class="custom-hr">
@@ -186,46 +185,45 @@
                     <br />
                     <h4 id="pas1">
                         <br />
-                        <br />
                         &#128995;&nbsp;&nbsp; Paso 1: Agenda tu primera consulta
                     </h4>
+                    <br>
                     <ul>
                         <li style="text-align: justify;">Para agendar una consulta, reserva en esta
                             página y elige la fecha y horario en la que deseas realizar la
                             sesión de terapia. También podrás elegir la modalidad que más te
-                            acomode: Terapia online o terapia presencial.</li>
+                            acomode: Terapia online o terapia presencial.</li><br>
                         <li style="text-align: justify;">Las sesiones de trabajo que realizo tienen
                             una duración de 60 minutos.</li>
                     </ul>
-
-                    <br />
-                    <br />
+                    <br>
                     <h4 id="pas2">
-                        <br />
                         <br />
                         &#128995;&nbsp;&nbsp; Paso 2: Creamos un plan de trabajo
                     </h4>
+                    <br>
                     <ul>
                         <li style="text-align: justify;">En nuestra primera sesión, te invito a que me
                             cuentes acerca de ti, quien eres, como te sientes, que es lo que
                             te motiva a asistir a terapia, así como también, aclarar todas las
                             dudas que puedas tener respecto de este proceso.</li>
+                        <br>
                         <li style="text-align: justify;">Si nunca has hecho una terapia, no te
                             preocupes, en esta primera sesión te explicaré cómo la terapia nos
                             ayudará a cumplir nuestros objetivos, y los compromisos que son
                             necesarios para que sea efectiva.</li>
+                        <br>
                         <li style="text-align: justify;">Creamos un plan de trabajo. La cantidad de
                             sesiones que serán necesarias depende de las necesidades de cada
                             paciente.</li>
                     </ul>
                     <br />
-                    <br />
                     <h4 id="pas3">
-                        <br />
                         <br />
                         &#128995;&nbsp;&nbsp; Paso 3: Agendamiento de las próximas
                         sesiones
                     </h4>
+                    <br>
                     <ul>
                         <li style="text-align: justify;">Podrás continuar con tu terapia agendando
                             regularmente sesiones en la frecuencia que estimemos conveniente.
@@ -239,9 +237,7 @@
                 <hr class="custom-hr">
                 <div id="informacion">
                     <br />
-                    <br />
                     <h2>Información para ti</h2>
-                    <br />
                     <h4 onmouseover="desplegar('div1')" onmouseout="desplegar('div1')" id="pre1" class="hover-move">
                         <br />
                         <br />
@@ -256,7 +252,6 @@
                                 resolverás tus inquietudes; esto para mí también es parte
                                 fundamental del proceso en una terapia.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div2')" onmouseout="desplegar('div2')" id="pre2" class="hover-move">
                         <br />
@@ -275,7 +270,6 @@
                                 cambios importantes en la vida, es decir, mejorar la salud
                                 mental en general y la calidad de vida.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div3')" onmouseout="desplegar('div3')" id="pre3" class="hover-move">
                         <br />
@@ -289,10 +283,12 @@
                                 conductuales, desarrollo personal, y situaciones donde la
                                 terapia hablada es efectiva.
                             </li>
+                            <br>
                             <li style="text-align: justify;">El psiquiatra es un médico, que aborda
                                 idealmente trastornos graves, la perspectiva desde la cual
                                 aborda la problemática es principalmente farmacológica. .
                             </li>
+                            <br>
                             <li style="text-align: justify;">La terapia con ambos es beneficioso en
                                 casos
                                 complejos y para un tratamiento integral, es decir, no será
@@ -313,7 +309,6 @@
                                 necesidades y de los objetivos terapéuticos. Lo determinaremos
                                 al inicio de la terapia.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div5')" onmouseout="desplegar('div5')" id="pre5" class="hover-move">
                         <br />
@@ -326,10 +321,10 @@
                             <li style="text-align: justify;">Puedes elegir la modalidad que más te
                                 acomode, la terapia es igual de efectiva sea online o
                                 presencial.</li>
+                            <br>
                             <li style="text-align: justify;">Para terapias de pareja puede resultar más
                                 cómodo agendar una consulta presencial, pero no es un requisito.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div6')" onmouseout="desplegar('div6')" id="pre6" class="hover-move">
                         <br />
@@ -345,7 +340,6 @@
                                 transferencias
                                 bancarias.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div7')" onmouseout="desplegar('div7')" id="pre7" class="hover-move">
                         <br />
@@ -360,7 +354,6 @@
                                 salud con cobertura para psicología, puedes traer el formulario
                                 para ser llenado por mí.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div8')" onmouseout="desplegar('div8')" id="pre8" class="hover-move">
                         <br />
@@ -374,7 +367,6 @@
                                 email: <a href="mailto:contacto@psicologapiacruz.cl">contacto@psicologapiacruz.cl</a>
                             </li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div9')" onmouseout="desplegar('div9')" id="pre9" class="hover-move">
                         <br />
@@ -388,7 +380,6 @@
                                 al cancelar una hora estás liberando el cupo para que alguien
                                 más lo pueda agendar.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div10')" onmouseout="desplegar('div10')" id="pre10" class="hover-move">
                         <br />
@@ -409,7 +400,6 @@
                                 promuevo el equilibrio y la armonía en todos los aspectos de la
                                 persona.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div11')" onmouseout="desplegar('div11')" id="pre11" class="hover-move">
                         <br />
@@ -431,7 +421,6 @@
                                 de Bach son perfectas para resolver enfermedades que tienen un
                                 origen emocional, mental o psicosomático.</li>
                         </ul>
-                        <br />
                     </div>
                     <h4 onmouseover="desplegar('div12')" onmouseout="desplegar('div12')" id="pre12" class="hover-move">
                         <br />
@@ -445,7 +434,6 @@
                                 Online. El valor de la sesión equivale a la sesión más el frasco
                                 con las esencias florales.</li>
                         </ul>
-                        <br />
                     </div>
                 </div>
                 <br />

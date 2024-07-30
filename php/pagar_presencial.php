@@ -11,7 +11,7 @@ if (!isset($_SESSION['reserva'])) {
 require __DIR__ . '/../vendor/autoload.php';
 
 // Configurar Mercado Pago
-MercadoPago\SDK::setAccessToken('TEST-8124934877149287-071608-d699a1f38f3acd5871411a9d71a7d98a-96891356');
+MercadoPago\SDK::setAccessToken('APP_USR-170824455984482-072910-37da5030f41bd335c6bc6094f4642849-212984810');
 
 $reserva = $_SESSION['reserva'];
 
@@ -20,15 +20,15 @@ $preference = new MercadoPago\Preference();
 
 // Crear un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Reserva Consulta Presencial';
+$item->title = $reserva['motivo'];
 $item->quantity = 1;
-$item->unit_price = 1;
+$item->unit_price = $reserva['precio'];
 $preference->items = array($item);
 
 // Crear URL de retorno
 $preference->back_urls = array(
-    "success" => "https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/pago_exitoso_presencial.php",
-    "failure" => "https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/pago_fallido_presencial.php",
+    "success" => "https://www.psicologapiacruz.cl/php/pago_exitoso_presencial.php",
+    "failure" => "https://www.psicologapiacruz.cl/php/pago_fallido_presencial.php",
     "pending" => ""
 );
 $preference->auto_return = "approved";

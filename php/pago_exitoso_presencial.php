@@ -16,7 +16,7 @@ if (mysqli_query($conexion, $sql)) {
 
 
   // Enviar correo de confirmación
-  $to = $email . ', contacto@facundogonzalezvivo.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
+  $to = $email . ', contacto@psicologapiacruz.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
   $subject = "Confirmación de Reserva";
   $message = "
     <html>
@@ -36,7 +36,10 @@ if (mysqli_query($conexion, $sql)) {
         <li>Fecha: $fechaModificada</li>
         <li>Hora: $hora</li>
       </ul>
-      <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
+        <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
+        <br>
+        <img src='../images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
+        <p>Pía Cruz Dote<br>Psicóloga Clínica</p>
     </body>
     </html>
     ";
@@ -46,7 +49,7 @@ if (mysqli_query($conexion, $sql)) {
   $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
   // Cabeceras adicionales
-  $headers .= 'From: contacto@facundogonzalezvivo.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
+  $headers .= 'From: contacto@psicologapiacruz.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
 
   // Enviar correo
   mail($to, $subject, $message, $headers);
@@ -68,14 +71,12 @@ if (mysqli_query($conexion, $sql)) {
       </script>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' />
       <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet'>
-    <meta http-equiv='refresh'
-        content='0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/pago_exitoso_presencial.php'>
-    </head>
+      </head>
     
     <body>
       <nav class='sidebar'>
         <div class='logo'>
-          <img src='../images/logoPiaCruz.png' alt='Logo' />
+            <img src='../images/logoPiaCruz.jpg' alt='Logo Pia Cruz' />
         </div>
         <ul>
           <li><a href='../index.php'>Inicio</a></li>
@@ -129,7 +130,7 @@ if (mysqli_query($conexion, $sql)) {
           </li>
         </ul>
       </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+      
       <section class='about-us'>
         <div class='about'>
           <div class='text'>
@@ -208,6 +209,7 @@ if (mysqli_query($conexion, $sql)) {
         </div>
       </section>
       <script src='../js/app.js'></script>
+      <script src='../js/validarRUT.js'></script>
     
     </body>
     

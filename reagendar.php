@@ -13,12 +13,19 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/reagendar.php">
     <style>
         .custom-hr {
             border: 0;
             height: 3px;
             background: #6d28d9;
+        }
+
+        .hover-move {
+            transition: transform 0.3s ease;
+        }
+
+        .hover-move:hover {
+            transform: translateY(-5px);
         }
     </style>
     <script>
@@ -32,6 +39,74 @@
 
             document.getElementById(palabra).value = palabras.join(" ");
         }
+        var FnRut = {
+            // Valida el rut con su cadena completa "XX.XXX.XXX-X"
+            validaRut: function (rutCompleto) {
+                // Verificar formato con puntos y guión
+                if (!/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rutCompleto))
+                    return false;
+
+                // Eliminar puntos y guión para validar
+                rutCompleto = rutCompleto.replace(/\./g, '').replace('-', '');
+
+                var tmp = rutCompleto.slice(0, -1);
+                var digv = rutCompleto.slice(-1).toLowerCase();
+
+                return (FnRut.dv(tmp) == digv);
+            },
+            dv: function (T) {
+                var M = 0, S = 1;
+                for (; T; T = Math.floor(T / 10))
+                    S = (S + T % 10 * (9 - M++ % 6)) % 11;
+                return S ? S - 1 : 'k';
+            }
+        }
+
+        $(document).ready(function () {
+            $("#txt_rut_modificar").blur(function () {
+                if (FnRut.validaRut($("#txt_rut_modificar").val())) {
+                    $("#msgerrorRut").html("&#10004;&#65039; El Rut es válido");
+                    document.getElementById('txt_rut_modificar').style.backgroundColor = "";
+                } else {
+                    $("#msgerrorRut").html("&#10006;&#65039; El Rut no es válido");
+                    alert("El Rut no es válido");
+                    document.getElementById('txt_rut_modificar').value = "";
+                    document.getElementById('txt_rut_modificar').style.backgroundColor = "#ffcccc";
+                }
+            });
+
+            $("#txt_rut_modificar").focus(function () {
+                document.getElementById('txt_rut_modificar').style.backgroundColor = "";
+            });
+        });
+
+        var FnCorreo = {
+            // Valida el correo electrónico
+            validaCorreo: function (correo) {
+                // Expresión regular para validar el formato del correo electrónico
+                var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return regex.test(correo);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#txt_email_modificar").blur(function () {
+                if (FnCorreo.validaCorreo($("#txt_email_modificar").val())) {
+                    $("#msgerrorCorreo").html("&#10004;&#65039; El Correo es válido");
+                    document.getElementById('txt_email_modificar').style.backgroundColor = "";
+                } else {
+                    $("#msgerrorCorreo").html("&#10006;&#65039; El Correo no es válido");
+                    alert("El Correo no es válido");
+                    document.getElementById('txt_email_modificar').value = "";
+                    document.getElementById('txt_email_modificar').style.backgroundColor = "#ffcccc";
+
+                }
+            });
+
+            $("#txt_email_modificar").focus(function () {
+                document.getElementById('txt_email_modificar').style.backgroundColor = "";
+            });
+        });
     </script>
 </head>
 
@@ -41,7 +116,7 @@
     </div>
     <nav class="sidebar">
         <div class="logo">
-            <img src="images/logoPiaCruz.png" alt="Logo" />
+            <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
         </div>
         <ul>
             <li><a href='horario.php'>Ver calendario</a></li>
@@ -100,20 +175,20 @@
             </li>
         </ul>
     </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+
     <section class="about-us">
         <div class="about">
             <div class="text">
                 <h1>Modificar Consulta</h1>
                 <hr style="border: 0; height: 3px; background: #6d28d9;">
                 <div id="modificar_consulta">
-                    <h5>Modificar Consulta</h5>
                     <br />
                     <div class="recordatorio" style="margin-top: 15px">
+                        <h5>Modificar Consulta</h5>
                         <form id="modifyForm" action="php/main_modificar_consulta.php" method="post">
                             <div class="row">
                                 <div class="col-sx-12 col-sm-12">
-                                    <label>Seleccione su cita agendada</label><br>
+                                    <label>Seleccione su reserva agendada</label><br>
                                     <select id="select_cita" name="select_cita" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;">
                                         <option value="" style="display: none">
@@ -129,17 +204,19 @@
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>RUT</label><br>
+                                    <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span
+                                            id="msgerrorRut"></span></label><br>
                                     <input type="text" id="txt_rut_modificar" name="txt_rut_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Email</label><br>
+                                    <label>Email <span>nombre@mail.com</span>&nbsp;&nbsp;&nbsp;<span
+                                            id="msgerrorCorreo"></span></label><br>
                                     <input type="email" id="txt_email_modificar" name="txt_email_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Teléfono</label><br>
+                                    <label>Teléfono <span>+56987654321</span></label><br>
                                     <input type="tel" id="txt_telefono_modificar" name="txt_telefono_modificar" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
@@ -179,8 +256,7 @@
                                         hidden />
                                 </div>
                             </div>
-                            <br /><button class="hover-move boton" id="modifyButton" type="submit"
-                                style="color: #000; padding: 15px;">
+                            <br /><button class="hover-move boton" id="modifyButton" type="submit">
                                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Modificar y Guardar
                             </button>
                         </form>

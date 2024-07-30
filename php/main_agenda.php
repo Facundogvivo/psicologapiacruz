@@ -41,14 +41,12 @@ if (mysqli_query($conn, $sql)) {
       </script>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' />
       <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet'>
-    <meta http-equiv='refresh'
-        content='0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/main_agenda.php'>
-    </head>
+      </head>
     
     <body>
       <nav class='sidebar'>
         <div class='logo'>
-          <img src='../images/logoPiaCruz.png' alt='Logo' />
+            <img src='../images/logoPiaCruz.jpg' alt='Logo Pia Cruz' />
         </div>
         <ul>
           <li><a href='../horario.php'>Ver calendario</a></li>
@@ -107,7 +105,7 @@ if (mysqli_query($conn, $sql)) {
           </li>
         </ul>
       </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+      
       <section class='about-us'>
         <div class='about'>
           <div class='text'>
@@ -186,6 +184,7 @@ if (mysqli_query($conn, $sql)) {
         </div>
       </section>
       <script src='../js/app.js'></script>
+      <script src='../js/validarRUT.js'></script>
     
     </body>
     

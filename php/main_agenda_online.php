@@ -13,6 +13,7 @@ $dateTime = new DateTime($fecha);
 $fechaModificada = $dateTime->format('d-m-Y');
 
 $hora = $_POST['txt_hora_online'];
+$precio = $_POST['precio'];
 
 // Verificar si la hora ha sido seleccionada
 if (empty($hora)) {
@@ -32,25 +33,28 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
     $subject = "Confirmación de Reserva";
     $message = "
     <html>
-    <head>
-      <meta charset='utf-8' />
-      <title>Confirmación de Reserva</title>
-    </head>
-    <body>
-      <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
-      <p>Detalles de la reserva:</p>
-      <ul>
-        <li>Tipo de consulta: Presencial</li>
-        <li>Rut: $rut</li>
-        <li>Nombre: $nombre</li>
-        <li>Email: $email</li>
-        <li>Teléfono: $telefono</li>
-        <li>Motivo: $motivo</li>
-        <li>Fecha: $fechaModificada</li>
-        <li>Hora: $hora</li>
-      </ul>
-      <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
-    </body>
+      <head>
+        <meta charset='utf-8' />
+        <title>Confirmación de Reserva</title>
+      </head>
+      <body>
+        <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
+        <p>Detalles de la reserva:</p>
+        <ul>
+          <li>Tipo de consulta: Presencial</li>
+          <li>Rut: $rut</li>
+          <li>Nombre: $nombre</li>
+          <li>Email: $email</li>
+          <li>Teléfono: $telefono</li>
+          <li>Motivo: $motivo</li>
+          <li>Fecha: $fechaModificada</li>
+          <li>Hora: $hora</li>
+        </ul>
+        <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
+        <br>
+        <img src='../images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
+        <p>Pía Cruz Dote<br>Psicóloga Clínica</p>
+      </body>
     </html>
     ";
 
@@ -81,14 +85,12 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
       </script>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' />
       <link href='https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap' rel='stylesheet'>
-    <meta http-equiv='refresh'
-        content='0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/php/main_agenda_online.php'>
-    </head>
+     </head>
     
     <body>
       <nav class='sidebar'>
         <div class='logo'>
-          <img src='../images/logoPiaCruz.png' alt='Logo' />
+            <img src='../images/logoPiaCruz.jpg' alt='Logo Pia Cruz' />
         </div>
         <ul>
           <li><a href='../index.php'>Inicio</a></li>
@@ -142,7 +144,7 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
           </li>
         </ul>
       </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+      
       <section class='about-us'>
         <div class='about'>
           <div class='text'>
@@ -221,6 +223,7 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
         </div>
       </section>
       <script src='../js/app.js'></script>
+      <script src='../js/validarRUT.js'></script>
     
     </body>
     
@@ -240,7 +243,8 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
     'motivo' => $motivo,
     'dia' => $fecha,
     'diaModificado' => $fechaModificada,
-    'hora' => $hora
+    'hora' => $hora,
+    'precio' => $precio
   );
   header('Location: pagar_online.php');
   exit;

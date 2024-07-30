@@ -105,6 +105,7 @@ nav ul li.active a {
 nav ul li a:hover {
   text-decoration: none;
   background: #a78bfa;
+  color: #fff;
 }
 nav ul ul {
   position: static;
@@ -131,7 +132,7 @@ nav ul li.active ul li a {
   border-left-color: #6d28d9;
 }
 nav ul ul li a:hover {
-  color: #000 !important;
+  color: #fff !important;
   background: #a78bfa !important;
 }
 nav ul li ul li.active a {

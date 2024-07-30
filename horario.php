@@ -14,7 +14,6 @@
     </script>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/horario.php">
 
     <style>
         .custom-hr {
@@ -87,29 +86,35 @@
         }
 
         .motivo-bloqueo {
-            background-color: #ffcccc;
+            background-color: #f28b82;
             /* Rojo claro */
         }
 
         .motivo-individual {
-            background-color: #ccffcc;
-            /* Verde claro */
+            background-color: #fbbc04;
+            /* Naranja claro */
         }
 
         .motivo-pareja {
-            background-color: #ccccff;
-            /* Azul claro */
+            background-color: #fff475;
+            /* Amarillo claro */
         }
 
-        .motivo-evaluacion {
-            background-color: #ffccff;
-            /* Azul claro */
+        .motivo-evaluacion-individual {
+            background-color: #ccff90;
+            /* Verde claro */
+        }
+
+        .motivo-evaluacion-pareja {
+            background-color: #a7ffeb;
+            /* Turquesa claro */
         }
 
         .motivo-floral {
-            background-color: #ccffff;
+            background-color: #aecbfa;
             /* Azul claro */
         }
+
 
         .meses {
             border-radius: 10px;
@@ -125,9 +130,9 @@
 
         .legend-color {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
+            width: 25px;
+            height: 25px;
+            margin-right: 15px;
             vertical-align: middle;
             box-shadow: 5px 5px 5px #000;
         }
@@ -135,13 +140,13 @@
         #legend {
             display: flex;
             align-items: center;
-            margin-left: 20px;
         }
 
         #legend div {
             display: flex;
             align-items: center;
-            margin-right: 15px;
+            width: 100%;
+            padding: 10px;
         }
 
         .controls-container {
@@ -149,7 +154,6 @@
             justify-content: center;
             align-items: center;
             margin-top: 20px;
-            /* Ajusta según tus necesidades */
         }
 
         #calendarControls {
@@ -180,7 +184,7 @@
     </div>
     <nav class='sidebar'>
         <div class='logo'>
-            <img src='images/logoPiaCruz.png' alt='Logo' />
+            <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
         </div>
         <ul>
             <li><a href='horario.php'>Ver calendario</a></li>
@@ -239,7 +243,7 @@
             </li>
         </ul>
     </nav>
-    <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+
     <section class='about-us'>
         <div class='about'>
             <div class='text'>
@@ -248,12 +252,24 @@
                     <button id="prevMonth" class="meses hover-move">Mes Anterior</button>
                     <button id="nextMonth" class="meses hover-move">Mes Siguiente</button>
                 </div>
+                <br>
                 <div id="legend">
-                    <div><span class="legend-color motivo-evaluacion"></span> Primera sesión de evaluación</div>
-                    <div><span class="legend-color motivo-individual"></span> Terapia individual</div>
-                    <div><span class="legend-color motivo-pareja"></span> Terapia de pareja</div>
-                    <div><span class="legend-color motivo-floral"></span> Terapia floral</div>
-                    <div><span class="legend-color motivo-bloqueo"></span> Hora bloqueada</div>
+                    <div><span class="legend-color motivo-evaluacion-individual"></span> Primera Sesión de
+                        Evaluación
+                        (Terapia
+                        Individual)
+                    </div>
+                    <div><span class="legend-color motivo-evaluacion-pareja"></span> Primera Sesión de Evaluación
+                        (Terapia de
+                        Pareja)</div>
+                </div>
+                <div id="legend">
+                    <div><span class="legend-color motivo-individual"></span> Terapia Individual</div>
+                    <div><span class="legend-color motivo-pareja"></span> Terapia de Pareja</div>
+                </div>
+                <div id="legend">
+                    <div><span class="legend-color motivo-floral"></span> Terapia Floral</div>
+                    <div><span class="legend-color motivo-bloqueo"></span> Hora Bloqueada</div>
                 </div>
                 <br><br>
                 <div id="calendarContainer"></div>
@@ -312,13 +328,13 @@
                             <table class="calendar-table">
                                 <thead>
                                     <tr>
-                                        <th style="width: 100px; text-align: center">Lunes</th>
-                                        <th style="width: 100px; text-align: center">Martes</th>
-                                        <th style="width: 100px; text-align: center">Miércoles</th>
-                                        <th style="width: 100px; text-align: center">Jueves</th>
-                                        <th style="width: 100px; text-align: center">Viernes</th>
-                                        <th style="width: 100px; text-align: center">Sábado</th>
-                                        <th style="width: 100px; text-align: center">Domingo</th>
+                                        <th style="width: 100px; text-align: center">Lun</th>
+                                        <th style="width: 100px; text-align: center">Mar</th>
+                                        <th style="width: 100px; text-align: center">Mié</th>
+                                        <th style="width: 100px; text-align: center">Jue</th>
+                                        <th style="width: 100px; text-align: center">Vie</th>
+                                        <th style="width: 100px; text-align: center">Sáb</th>
+                                        <th style="width: 100px; text-align: center">Dom</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -344,13 +360,13 @@
                             const isActiveDay = (currentDate.getDate() === day && currentDate.getMonth() === month);
 
                             calendarDaysHTML += `
-            <td class="hover-move calendar-day ${isActiveDay ? 'active' : ''}" data-day="${day}" data-month="${month}" data-year="${year}">
-                ${day}
-                <div class="calendar-time">
-                    <!-- Horarios reservados se mostrarán aquí -->
-                </div>
-            </td>
-        `;
+                                <td class="hover-move calendar-day ${isActiveDay ? 'active' : ''}" data-day="${day}" data-month="${month}" data-year="${year}">
+                                    ${day}
+                                    <div class="calendar-time">
+                                        <!-- Horarios reservados se mostrarán aquí -->
+                                    </div>
+                                </td>
+                            `;
 
                             if (dayOfWeek === 0 && day < daysInMonth) { // Domingo, nueva fila
                                 calendarDaysHTML += '</tr><tr>';
@@ -404,26 +420,33 @@
                                         if (calendarTime) {
                                             citasByDay[day].forEach(cita => {
                                                 const motivoClass = getMotivoClass(cita.motivo);
-                                                calendarTime.innerHTML += `<div class="busy ${motivoClass}">${cita.hora}<br>(${cita.consulta})<br>${cita.nombre}<br>(${cita.motivo})</div>`;
+                                                if (cita.motivo.toLowerCase() === 'bloqueado') {
+                                                    calendarTime.innerHTML += `<div class="busy ${motivoClass}">${cita.hora}<br>${cita.motivo}</div>`;
+                                                } else {
+                                                    calendarTime.innerHTML += `<div class="busy ${motivoClass}">${cita.hora}<br>(${cita.consulta})<br>${cita.nombre}<br>(${cita.motivo})</div>`;
+                                                }
                                             });
                                         }
                                     }
                                 }
+
                             })
                             .catch(error => console.error('Error:', error));
                     }
 
                     function getMotivoClass(motivo) {
-                        switch (motivo.toLowerCase()) {
-                            case 'evaluacion':
-                                return 'motivo-evaluacion';
-                            case 'individual':
+                        switch (motivo) {
+                            case 'Primera Sesión de Evaluación Individual':
+                                return 'motivo-evaluacion-individual';
+                            case 'Primera Sesión de Evaluación Terapia de Pareja':
+                                return 'motivo-evaluacion-pareja';
+                            case 'Terapia Individual':
                                 return 'motivo-individual';
-                            case 'pareja':
+                            case 'Terapia de Pareja':
                                 return 'motivo-pareja';
                             case 'bloqueado':
                                 return 'motivo-bloqueado';
-                            case 'floral':
+                            case 'Terapia Floral':
                                 return 'motivo-floral';
                             default:
                                 return '';

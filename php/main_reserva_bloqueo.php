@@ -10,7 +10,7 @@ if (empty($hora)) {
 	echo "<script> alert('Debes seleccionar una hora para bloquearla.'); window.location='../bloqueoHoras.php' </script>";
 	exit;
 }
-$sqlgrabar = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) values ('Bloqueado','Bloqueado','Bloqueado','Bloqueado','Bloqueado', 'Bloqueado', '$fecha', '$hora')";
+$sqlgrabar = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) values ('bloqueado','bloqueado','bloqueado','bloqueado','bloqueado', 'bloqueado', '$fecha', '$hora')";
 
 if (mysqli_query($conn, $sqlgrabar)) {
 	echo "<script> alert('Hora bloqueada con éxito: el $fecha a las $hora'); window.location='../bloqueoHoras.php' </script>";

@@ -14,7 +14,6 @@
   </script>
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <meta http-equiv="refresh" content="0;url=https://facundogonzalezvivo.cl/proyectos/psicologapiacruz/bloqueoHoras.php">
   <style>
     .custom-hr {
       border: 0;
@@ -40,7 +39,7 @@
   </div>
   <nav class='sidebar'>
     <div class='logo'>
-      <img src='images/logoPiaCruz.png' alt='Logo' />
+      <img src="images/logoPiaCruz.jpg" alt="Logo Pia Cruz" />
     </div>
     <ul>
       <li><a href='horario.php'>Ver calendario</a></li>
@@ -99,7 +98,7 @@
       </li>
     </ul>
   </nav>
-  <!-- <h1>Psicóloga Pia Cruz Dote</h1> -->
+
   <section class='about-us'>
     <div class='about'>
       <div class='text'>
@@ -122,7 +121,7 @@
               <br />
               <input type="text" id="txt_hora_bloqueo" name="txt_hora_bloqueo" readonly hidden />
               <br />
-              <button class="hover-move  boton" id="submitButton" type="submit" style="color: #000;">
+              <button class="hover-move  boton" id="submitButton" type="submit">
                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Bloquear
               </button>
             </form>
@@ -146,7 +145,7 @@
               </script>
 
               <br />
-              <button class="hover-move  boton" id="submitButton" type="submit" style="color: #000;">
+              <button class="hover-move  boton" id="submitButton" type="submit">
                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Bloquear
               </button>
             </form>
@@ -176,7 +175,7 @@
                 });
               </script>
               <br />
-              <button class="hover-move  boton" id="submitButton" type="submit" style="color: #000;">
+              <button class="hover-move  boton" id="submitButton" type="submit">
                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Bloquear
               </button>
             </form>
@@ -245,6 +244,7 @@
     }
   </script>
   <script src='js/app.js'></script>
+  <script src="js/validarRUT.js"></script>
 
 </body>
 
