@@ -29,7 +29,7 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
 
 
     // Enviar correo de confirmación
-    $to = $email . ', contacto@facundogonzalezvivo.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
+    $to = $email . ', contacto@psicologapiacruz.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
     $subject = "Confirmación de Reserva";
     $message = "
     <html>
@@ -63,7 +63,7 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
     $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
     // Cabeceras adicionales
-    $headers .= 'From: contacto@facundogonzalezvivo.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
+    $headers .= 'From: contacto@psicologapiacruz.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
 
     // Enviar correo
     mail($to, $subject, $message, $headers);

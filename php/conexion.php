@@ -1,14 +1,15 @@
 <?php
 
-// $dbhost = "localhost";
-// $dbuser = "cps102326";
-// $dbpass = "SEEmEtGNOndbpJIEFrqn";
-// $dbname = "cps102326_bd_piacruz";
 
 $dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$dbname = "bd_psicologa";
+$dbuser = "cps102326";
+$dbpass = "SEEmEtGNOndbpJIEFrqn";
+$dbname = "cps102326_bd_piacruz";
+
+// $dbhost = "localhost";
+// $dbuser = "root";
+// $dbpass = "";
+// $dbname = "bd_psicologa";
 
 $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
 

@@ -207,15 +207,15 @@
                                     </select>
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>Nombre y apellido</label><br>
-                                    <input type="text" id="txt_nombre" name="txt_nombre" required
-                                        onchange="mostrarPalabra('txt_nombre');"
-                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
-                                </div>
-                                <div class="col-sx-12 col-sm-6">
                                     <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span
                                             id="msgerrorRut"></span></label><br>
                                     <input type="text" id="txt_rut" name="txt_rut" required
+                                        style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
+                                </div>
+                                <div class="col-sx-12 col-sm-6">
+                                    <label>Nombre y apellido</label><br>
+                                    <input type="text" id="txt_nombre" name="txt_nombre" required
+                                        onchange="mostrarPalabra('txt_nombre');"
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                                 </div>
                                 <div class="col-sx-12 col-sm-6">

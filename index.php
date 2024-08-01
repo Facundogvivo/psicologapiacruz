@@ -18,9 +18,7 @@
         .custom-hr {
             border: 0;
             height: 3px;
-            /* Grosor de la línea */
             background: #6d28d9;
-            /* Color de la línea */
         }
 
         .hover-move {

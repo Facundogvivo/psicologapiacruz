@@ -67,6 +67,7 @@
           alert("El Rut no es válido");
           document.getElementById('txt_rut_online').value = "";
           document.getElementById('txt_rut_online').style.backgroundColor = "#ffcccc";
+          document.getElementById('txt_rut_online').focus();
         }
       });
 
@@ -186,14 +187,14 @@
             <form id="bookingForm" action="php/main_agenda_online.php" method="post">
               <div class="row">
                 <div class="col-sx-12 col-sm-6">
-                  <label>Nombre y apellido</label><br>
-                  <input type="text" id="txt_nombre_online" name="txt_nombre_online" required
-                    onchange="mostrarPalabra('txt_nombre_online');"
+                  <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span id="msgerrorRut"></span></label><br>
+                  <input type="text" id="txt_rut_online" name="txt_rut_online" required
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
-                  <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span id="msgerrorRut"></span></label><br>
-                  <input type="text" id="txt_rut_online" name="txt_rut_online" required
+                  <label>Nombre y apellido</label><br>
+                  <input type="text" id="txt_nombre_online" name="txt_nombre_online" required
+                    onchange="mostrarPalabra('txt_nombre_online');"
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
@@ -246,7 +247,7 @@
                 </div>
               </div>
               <br />
-              <button class="hover-move  boton" id="submitButton" type="submit" style="color: #000; padding: 15px;">
+              <button class="hover-move  boton" id="submitButton" type="submit">
                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Reservar y Pagar
               </button>
             </form>

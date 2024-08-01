@@ -189,14 +189,14 @@
             <form id="bookingForm" action="php/main_agenda_presencial.php" method="post">
               <div class="row">
                 <div class="col-sx-12 col-sm-6">
-                  <label>Nombre y apellido</label><br>
-                  <input type="text" id="txt_nombre_presencial" name="txt_nombre_presencial" required
-                    onchange="mostrarPalabra('txt_nombre_presencial');"
+                  <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span id="msgerrorRut"></span></label><br>
+                  <input type="text" id="txt_rut_presencial" name="txt_rut_presencial" required
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
-                  <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span id="msgerrorRut"></span></label><br>
-                  <input type="text" id="txt_rut_presencial" name="txt_rut_presencial" required
+                  <label>Nombre y apellido</label><br>
+                  <input type="text" id="txt_nombre_presencial" name="txt_nombre_presencial" required
+                    onchange="mostrarPalabra('txt_nombre_presencial');"
                     style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />
                 </div>
                 <div class="col-sx-12 col-sm-6">
@@ -248,8 +248,7 @@
                   <input type="text" id="txt_hora_presencial" name="txt_hora_presencial" readonly hidden />
                 </div>
               </div>
-              <br /><button class="hover-move  boton" id="submitButton" type="submit"
-                style="color: #000; padding: 15px;">
+              <br /><button class="hover-move  boton" id="submitButton" type="submit">
                 <i class="zmdi">&#128467;&#65039;</i> &nbsp;&nbsp; Reservar y Pagar
               </button>
             </form>
