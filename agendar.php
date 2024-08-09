@@ -43,19 +43,17 @@
             document.getElementById(palabra).value = palabras.join(" ");
         }
         var FnRut = {
-            // Valida el rut con su cadena completa "XX.XXX.XXX-X"
+            // Valida el rut con su cadena completa "XXXXXXXX-X"
             validaRut: function (rutCompleto) {
-                // Verificar formato con puntos y guión
-                if (!/^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9kK]{1}$/.test(rutCompleto))
+                rutCompleto = rutCompleto.replace("‐", "-");
+                if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test(rutCompleto))
                     return false;
+                var tmp = rutCompleto.split('-');
+                var digv = tmp[1];
+                var rut = tmp[0];
+                if (digv == 'K') digv = 'k';
 
-                // Eliminar puntos y guión para validar
-                rutCompleto = rutCompleto.replace(/\./g, '').replace('-', '');
-
-                var tmp = rutCompleto.slice(0, -1);
-                var digv = rutCompleto.slice(-1).toLowerCase();
-
-                return (FnRut.dv(tmp) == digv);
+                return (FnRut.dv(rut) == digv);
             },
             dv: function (T) {
                 var M = 0, S = 1;
@@ -67,7 +65,12 @@
 
         $(document).ready(function () {
             $("#txt_rut").blur(function () {
-                if (FnRut.validaRut($("#txt_rut").val())) {
+                var rut = $("#txt_rut").val();
+
+                if (rut === "") {
+                    $("#msgerrorRut").html(""); // No mostrar ningún mensaje si está vacío
+                    document.getElementById('txt_rut').style.backgroundColor = "";
+                } else if (FnRut.validaRut(rut)) {
                     $("#msgerrorRut").html("&#10004;&#65039; El Rut es válido");
                     document.getElementById('txt_rut').style.backgroundColor = "";
                 } else {
@@ -207,7 +210,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sx-12 col-sm-6">
-                                    <label>RUT <span>12.345.678-K</span>&nbsp;&nbsp;&nbsp;<span
+                                    <label>RUT <span>12345678-K</span>&nbsp;&nbsp;&nbsp;<span
                                             id="msgerrorRut"></span></label><br>
                                     <input type="text" id="txt_rut" name="txt_rut" required
                                         style="border: 1px solid #b5b5b5; width: 100%; border-radius: 10px; padding: 5px;box-shadow: 10px 10px 5px #d6c4fd;" />

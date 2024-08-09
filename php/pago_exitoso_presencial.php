@@ -23,22 +23,27 @@ if (mysqli_query($conexion, $sql)) {
     <head>
       <title>Confirmación de Reserva</title>
     </head>
-    <body>
-      <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
-      <p>Detalles de la reserva:</p>
-      <ul>
-        <li>Tipo de consulta: Presencial</li>
-        <li>Rut: $rut</li>
-        <li>Nombre: $nombre</li>
-        <li>Email: $email</li>
-        <li>Teléfono: $telefono</li>
-        <li>Motivo: $motivo</li>
-        <li>Fecha: $fechaModificada</li>
-        <li>Hora: $hora</li>
-      </ul>
+      <body>
+           <p>Hola $nombre, tu consulta presencial ha sido agendada con éxito</p>
+        <p>Datos de la reserva:</p>
+        <ul>
+          <li>Tipo de consulta: Presencial</li>
+          <li>Dirección: Eliodoro Yáñez 2979 Oficina 410, Providencia.</li>
+          <li>Estación de metro: Estación de metro Cristóbal Colón</li>
+          <li>Fecha: $fechaModificada</li>
+          <li>Hora: $hora</li>
+          <li>Motivo: $motivo</li>
+        </ul>
+        <p>Datos del paciente:</p>
+        <ul>
+          <li>Nombre: $nombre</li>
+          <li>Rut: $rut</li>
+          <li>Teléfono: $telefono</li>
+          <li>Email: $email</li>
+        </ul>
         <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
         <br>
-        <img src='../images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
+        <img src='https://www.psicologapiacruz.cl/images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
         <p>Pía Cruz Dote<br>Psicóloga Clínica</p>
     </body>
     </html>
@@ -137,8 +142,11 @@ if (mysqli_query($conexion, $sql)) {
             <div id='detalle_reserva'>
     
               <h2 style='text-align: center;'>Reserva realizada</h2><br>
-              <p style='text-align: center;'>{$reserva['nombre']}, tu consulta presencial ha sido agendada con éxito</p>
-              <div class='recordatorio col-sm-12'>
+              <p style='text-align: center;'>Hola {$reserva['nombre']}, tu consulta presencial ha sido agendada con éxito</p>
+             <div class='recordatorio col-sm-12'>
+              <p style='text-align: center;'>Su reserva a sido enviada al correo $email. No olvide revisar en correos no deseados.</p>
+              </div><br><br><br><br>
+               <div class='recordatorio col-sm-12'>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Tipo de consulta:&nbsp;&nbsp;</p>
                 </div>
@@ -189,7 +197,7 @@ if (mysqli_query($conexion, $sql)) {
                 </div>
               </div>
             </div>
-            <p style='text-align: center; padding-top: 350px;'>Que tengas un buen día, nos vemos el {$reserva['diaModificado']}</p>
+            <p style='text-align: center; padding-top: 50px; clear: both'>Que tengas un buen día, nos vemos el $fechaModificada</p>
             <br><br>
             <footer>
               <div style='text-align: center; padding: 10px; background-color: #f1f1f1;'>
@@ -209,7 +217,6 @@ if (mysqli_query($conexion, $sql)) {
         </div>
       </section>
       <script src='../js/app.js'></script>
-      <script src='../js/validarRUT.js'></script>
     
     </body>
     

@@ -42,5 +42,12 @@ for ($fecha = $fechaInicio; $fecha < $fechaFin; $fecha->modify('+1 day')) {
         }
     }
 }
-
-echo "<script> alert('Dias bloqueados con exito: desde el $fechaDesde hasta $fechaHasta'); window.location='../bloqueoHoras.php' </script>";
+echo "<!DOCTYPE html>
+<html lang='es'>
+    <head>
+        <meta charset='utf-8' />
+    </head>
+    <body>
+        <script> alert('Dias bloqueados con exito: desde el $fechaDesde hasta $fechaHasta'); window.location='../bloqueoHoras.php' </script>
+    </body>
+</html>";

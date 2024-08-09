@@ -25,6 +25,54 @@ if (empty($hora)) {
 $sql = "INSERT INTO reserva (consulta, rut, nombre, email, telefono, motivo, dia, hora) VALUES ('$tipo','$rut', '$nombre', '$email', '$telefono', '$motivo', '$fecha', '$hora')";
 
 if (mysqli_query($conn, $sql)) {
+
+
+
+  // Enviar correo de confirmación
+  $to = $email . ', contacto@psicologapiacruz.cl'; // Cambia 'otheremail@example.com' por la otra dirección de correo
+  $subject = "Confirmación de Reserva";
+  $message = "
+    <html>
+      <head>
+        <meta charset='utf-8' />
+        <title>Confirmación de Reserva</title>
+      </head>
+      <body>
+        <p>Hola $nombre, tu consulta online ha sido agendada con éxito</p>
+        <p>Datos de la reserva:</p>
+        <ul>
+          <li>Tipo de consulta: Online</li>
+          <li>Como: Videoconferencia por Google Meet</li>
+          <li>Recuerde: Es recomendable contar con buena conexión a internet. Contar con micrófono, audífonos y cámara web</li>
+          <li>Fecha: $fechaModificada</li>
+          <li>Hora: $hora</li>
+          <li>Motivo: $motivo</li>
+        </ul>
+        <p>Datos del paciente:</p>
+        <ul>
+          <li>Nombre: $nombre</li>
+          <li>Rut: $rut</li>
+          <li>Teléfono: $telefono</li>
+          <li>Email: $email</li>
+        </ul>
+        <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
+        <br>
+        <img src='https://www.psicologapiacruz.cl/images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
+        <p>Pía Cruz Dote<br>Psicóloga Clínica</p>
+      </body>
+    </html>
+    ";
+
+  // Para enviar un correo HTML, debes establecer las cabeceras Content-type
+  $headers = 'MIME-Version: 1.0' . "\r\n";
+  $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+  // Cabeceras adicionales
+  $headers .= 'From: contacto@psicologapiacruz.cl' . "\r\n"; // Cambia 'info@yourdomain.com' por tu dirección de correo
+
+  // Enviar correo
+  mail($to, $subject, $message, $headers);
+
   echo "
     <!DOCTYPE html>
     <html lang='es'>
@@ -112,43 +160,56 @@ if (mysqli_query($conn, $sql)) {
             <div id='detalle_reserva'>
     
               <h2 style='text-align: center;'>Reserva realizada</h2><br>
-              <p style='text-align: center;'>$nombre, tu consulta presencial ha sido agendada con éxito</p>
+              <p style='text-align: center;'>Hola $nombre, tu consulta $tipo ha sido agendada con éxito</p>              
               <div class='recordatorio col-sm-12'>
+              <p style='text-align: center;'>Su reserva a sido enviada al correo $email. No olvide revisar en correos no deseados.</p>
+              </div><br><br><br><br>
+              <div class='recordatorio col-sm-12'>
+              <div class='col-sm-12'>
+                  <p style='text-align: left; margin-left: 150px'>Datos de la reserva</p>
+                  <hr>
+                </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Tipo de consulta:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;Presencial</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;$tipo</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: right'>Rut:&nbsp;&nbsp;</p>
+                  <p style='text-align: right'>";
+  if ($tipo == 'Presencial') {
+    echo "Dirección:&nbsp;&nbsp;";
+  } else {
+    echo "Como:&nbsp;&nbsp;";
+  }
+  echo "</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$rut</p>
+                  <p style='text-align: left'>";
+  if ($tipo == 'Presencial') {
+    echo "&nbsp;&nbsp;Eliodoro Yáñez 2979 Oficina 410, Providencia.";
+  } else {
+    echo "&nbsp;&nbsp;Videoconferencia por Google Meet";
+  }
+  echo "</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: right'>Nombre:&nbsp;&nbsp;</p>
+                  <p style='text-align: right'>";
+  if ($tipo == 'Presencial') {
+    echo "Estación de metro cercana:&nbsp;&nbsp;";
+  } else {
+    echo "Recuerde:&nbsp;&nbsp;";
+  }
+  echo "</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$nombre</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Email:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$email</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Teléfono:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$telefono</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Motivo:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$motivo</p>
+                  <p style='text-align: left'>";
+  if ($tipo == 'Presencial') {
+    echo "&nbsp;&nbsp;Estación de metro Cristóbal Colón";
+  } else {
+    echo "&nbsp;&nbsp;Es recomendable contar con buena conexión a internet. Contar con micrófono, audífonos y cámara web";
+  }
+  echo "</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Fecha:&nbsp;&nbsp;</p>
@@ -162,9 +223,43 @@ if (mysqli_query($conn, $sql)) {
                 <div class='col-sm-6'>
                   <p style='text-align: left'>&nbsp;&nbsp;$hora</p>
                 </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Motivo:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$motivo</p>
+                </div>
+                <div class='col-sm-12'>
+                  <p style='text-align: left; margin-left: 150px'>Datos del paciente</p>
+                  <hr>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Nombre:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$nombre</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Rut:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$rut</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Teléfono:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$telefono</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Email:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$email</p>
+                </div>
               </div>
             </div>
-            <p style='text-align: center; padding-top: 350px;'>Que tengas un buen día, nos vemos el $fechaModificada</p>
+            <p style='text-align: center; padding-top: 50px; clear: both'>Que tengas un buen día, nos vemos el $fechaModificada</p>
             <br><br>
             <footer>
               <div style='text-align: center; padding: 10px; background-color: #f1f1f1;'>
@@ -184,7 +279,6 @@ if (mysqli_query($conn, $sql)) {
         </div>
       </section>
       <script src='../js/app.js'></script>
-      <script src='../js/validarRUT.js'></script>
     
     </body>
     

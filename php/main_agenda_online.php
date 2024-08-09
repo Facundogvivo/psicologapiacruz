@@ -38,21 +38,26 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
         <title>Confirmación de Reserva</title>
       </head>
       <body>
-        <p>$nombre, tu consulta presencial ha sido agendada con éxito</p>
-        <p>Detalles de la reserva:</p>
+        <p>Hola $nombre, tu consulta online ha sido agendada con éxito</p>
+        <p>Datos de la reserva:</p>
         <ul>
-          <li>Tipo de consulta: Presencial</li>
-          <li>Rut: $rut</li>
-          <li>Nombre: $nombre</li>
-          <li>Email: $email</li>
-          <li>Teléfono: $telefono</li>
-          <li>Motivo: $motivo</li>
+          <li>Tipo de consulta: Online</li>
+          <li>Como: Videoconferencia por Google Meet</li>
+          <li>Recuerde: Es recomendable contar con buena conexión a internet. Contar con micrófono, audífonos y cámara web</li>
           <li>Fecha: $fechaModificada</li>
           <li>Hora: $hora</li>
+          <li>Motivo: $motivo</li>
+        </ul>
+        <p>Datos del paciente:</p>
+        <ul>
+          <li>Nombre: $nombre</li>
+          <li>Rut: $rut</li>
+          <li>Teléfono: $telefono</li>
+          <li>Email: $email</li>
         </ul>
         <p>Que tengas un buen día, nos vemos el $fechaModificada</p>
         <br>
-        <img src='../images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
+        <img src='https://www.psicologapiacruz.cl/images/logoPiaCruz.jpg' alt='Firma' style='width:200px;height:auto;' />
         <p>Pía Cruz Dote<br>Psicóloga Clínica</p>
       </body>
     </html>
@@ -145,14 +150,21 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
         </ul>
       </nav>
       
-      <section class='about-us'>
+            <section class='about-us'>
         <div class='about'>
           <div class='text'>
             <div id='detalle_reserva'>
     
               <h2 style='text-align: center;'>Reserva realizada</h2><br>
-              <p style='text-align: center;'>$nombre, tu consulta presencial ha sido agendada con éxito</p>
+              <p style='text-align: center;'>Hola $nombre, tu consulta online ha sido agendada con éxito</p>              
               <div class='recordatorio col-sm-12'>
+              <p style='text-align: center;'>Su reserva a sido enviada al correo $email. No olvide revisar en correos no deseados.</p>
+              </div><br><br><br><br>
+              <div class='recordatorio col-sm-12'>
+              <div class='col-sm-12'>
+                  <p style='text-align: left; margin-left: 150px'>Datos de la reserva</p>
+                  <hr>
+                </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Tipo de consulta:&nbsp;&nbsp;</p>
                 </div>
@@ -160,34 +172,16 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
                   <p style='text-align: left'>&nbsp;&nbsp;Online</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: right'>Rut:&nbsp;&nbsp;</p>
+                  <p style='text-align: right'>Cómo:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$rut</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;Videoconferencia por Google Meet</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: right'>Nombre:&nbsp;&nbsp;</p>
+                  <p style='text-align: right'>Recuerde:&nbsp;&nbsp;</p>
                 </div>
                 <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$nombre</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Email:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$email</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Teléfono:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$telefono</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: right'>Motivo:&nbsp;&nbsp;</p>
-                </div>
-                <div class='col-sm-6'>
-                  <p style='text-align: left'>&nbsp;&nbsp;$motivo</p>
+                  <p style='text-align: left'>&nbsp;&nbsp;Es recomendable contar con buena conexión a internet. Contar con micrófono, audífonos y cámara web</p>
                 </div>
                 <div class='col-sm-6'>
                   <p style='text-align: right'>Fecha:&nbsp;&nbsp;</p>
@@ -201,9 +195,43 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
                 <div class='col-sm-6'>
                   <p style='text-align: left'>&nbsp;&nbsp;$hora</p>
                 </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Motivo:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$motivo</p>
+                </div>
+                <div class='col-sm-12'>
+                  <p style='text-align: left; margin-left: 150px'>Datos del paciente</p>
+                  <hr>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Nombre:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$nombre</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Rut:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$rut</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Teléfono:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$telefono</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: right'>Email:&nbsp;&nbsp;</p>
+                </div>
+                <div class='col-sm-6'>
+                  <p style='text-align: left'>&nbsp;&nbsp;$email</p>
+                </div>
               </div>
             </div>
-            <p style='text-align: center; padding-top: 350px;'>Que tengas un buen día, nos vemos el $fechaModificada</p>
+            <p style='text-align: center; padding-top: 50px; clear: both'>Que tengas un buen día, nos vemos el $fechaModificada</p>
             <br><br>
             <footer>
               <div style='text-align: center; padding: 10px; background-color: #f1f1f1;'>
@@ -223,7 +251,6 @@ if ($motivo == 'Primera Sesión de Evaluación Individual' || $motivo == 'Primer
         </div>
       </section>
       <script src='../js/app.js'></script>
-      <script src='../js/validarRUT.js'></script>
     
     </body>
     
